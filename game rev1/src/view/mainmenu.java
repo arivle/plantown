@@ -51,7 +51,7 @@ kotaknama.setText(nama);
     private void initComponents() {
 
         kotaknama = new javax.swing.JLabel();
-        boxnama = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         tmbmain = new javax.swing.JButton();
         tmbbantuan = new javax.swing.JButton();
         tmbtentang = new javax.swing.JButton();
@@ -65,10 +65,10 @@ kotaknama.setText(nama);
         kotaknama.setForeground(new java.awt.Color(102, 255, 51));
         kotaknama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         kotaknama.setText("jLabel2");
-        getContentPane().add(kotaknama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 200, 50));
+        getContentPane().add(kotaknama, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 50));
 
-        boxnama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/box nama 2.png"))); // NOI18N
-        getContentPane().add(boxnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 210, 220));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/box nama_burned.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 180, 90));
 
         tmbmain.setBorderPainted(false);
         tmbmain.setContentAreaFilled(false);
@@ -128,8 +128,8 @@ kotaknama.setText(nama);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel boxnama;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel kotaknama;
     private javax.swing.JButton tmbbantuan;
     private javax.swing.JButton tmbexit;

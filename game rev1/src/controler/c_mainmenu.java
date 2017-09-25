@@ -45,7 +45,8 @@ c_isinama controler;
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            controler.c_bantuan a = new controler.c_bantuan(new view.bantuan());
+             view.dispose();
         }
 
     }
@@ -54,7 +55,8 @@ c_isinama controler;
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            controler.c_tentang a = new controler.c_tentang(new view.tentang());
+             view.dispose();
         }
 
     }
@@ -63,7 +65,7 @@ c_isinama controler;
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            System.exit(0);
         }
 
     }
