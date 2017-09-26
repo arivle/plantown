@@ -22,9 +22,11 @@ public class mainmenu extends javax.swing.JFrame {
 //        kotaknama.setText(viewawal.namauser);
         this.setLocationRelativeTo(this);
     }
-public void setkotaknama (String nama){
-kotaknama.setText(nama);
-}
+
+    public void setkotaknama(String nama) {
+        kotaknama.setText(nama);
+    }
+
     public void klikmain(ActionListener action) {
         tmbmain.addActionListener(action);
     }

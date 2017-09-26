@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  * @author acer
  */
 public class playjagung extends javax.swing.JFrame {
-
+    
     public playjagung() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -28,15 +28,14 @@ public class playjagung extends javax.swing.JFrame {
     private void initComponents() {
 
         map = new javax.swing.JToggleButton();
-        airbutton = new javax.swing.JLabel();
-        pupukbutton = new javax.swing.JLabel();
-        obat1button = new javax.swing.JLabel();
-        obat2button = new javax.swing.JLabel();
-        guntingbutton = new javax.swing.JLabel();
-        panenbutton = new javax.swing.JLabel();
+        tmbsiram = new javax.swing.JButton();
         boxtanaman = new javax.swing.JLabel();
         boxgerak = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tmbobat1 = new javax.swing.JButton();
+        tmbobat2 = new javax.swing.JButton();
+        tmbpupuk = new javax.swing.JButton();
+        tmbgunting = new javax.swing.JButton();
+        tmbpanen = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,46 +44,35 @@ public class playjagung extends javax.swing.JFrame {
 
         map.setText("map");
         map.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(map, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 81, -1));
+        getContentPane().add(map, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 81, -1));
 
-        airbutton.setBackground(new java.awt.Color(255, 255, 255));
-        airbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
-        airbutton.setText("air");
-        airbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(airbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 80, 80));
+        tmbsiram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
+        tmbsiram.setText("jButton1");
+        tmbsiram.setBorderPainted(false);
+        tmbsiram.setContentAreaFilled(false);
+        getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 80));
 
-        pupukbutton.setText("pupuk");
-        pupukbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(pupukbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 97, 80, 80));
-
-        obat1button.setText("obat 1");
-        obat1button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(obat1button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 183, 80, 80));
-
-        obat2button.setText("obat 2");
-        obat2button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(obat2button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 272, 80, 80));
-
-        guntingbutton.setText("gunting");
-        guntingbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(guntingbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 363, 80, 80));
-
-        panenbutton.setText("panen");
-        panenbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(panenbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 449, 80, 80));
-
+        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1.png"))); // NOI18N
         boxtanaman.setText("tanaman");
         getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 300, 400));
 
         boxgerak.setText("boxgerak");
         getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 250, 200));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 110, 560));
+        tmbobat1.setText("jButton1");
+        getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
+
+        tmbobat2.setText("jButton2");
+        getContentPane().add(tmbobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, 80));
+
+        tmbpupuk.setText("jButton3");
+        getContentPane().add(tmbpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 80, 80));
+
+        tmbgunting.setText("jButton4");
+        getContentPane().add(tmbgunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
+
+        tmbpanen.setText("jButton5");
+        getContentPane().add(tmbpanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 80, 80));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
@@ -92,12 +80,40 @@ public class playjagung extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
     public void map(ActionListener action) {
         map.addActionListener(action);
+    }
+    
+    public void kliksiram(ActionListener action) {
+        tmbsiram.addActionListener(action);
+    }
+    
+    public void klikobat1(ActionListener action) {
+        tmbobat1.addActionListener(action);
+    }
+    
+    public void klikobat2(ActionListener action) {
+        tmbobat2.addActionListener(action);
+    }
+    
+    public void klikspupuk(ActionListener action) {
+        tmbpupuk.addActionListener(action);
+    }
+    
+    public void klikgunting(ActionListener action) {
+        tmbsiram.addActionListener(action);
+    }
+    
+    public void klikpanen(ActionListener action) {
+        tmbpanen.addActionListener(action);
+    }
+
+    public void settanaman(String tanaman) {
+        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource(tanaman)));
+    }
+
+    public void setboxgerak(String nama) {
+        boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
 
     /**
@@ -139,16 +155,15 @@ public class playjagung extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel airbutton;
     private javax.swing.JLabel background;
     private javax.swing.JLabel boxgerak;
     private javax.swing.JLabel boxtanaman;
-    private javax.swing.JLabel guntingbutton;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton map;
-    private javax.swing.JLabel obat1button;
-    private javax.swing.JLabel obat2button;
-    private javax.swing.JLabel panenbutton;
-    private javax.swing.JLabel pupukbutton;
+    private javax.swing.JButton tmbgunting;
+    private javax.swing.JButton tmbobat1;
+    private javax.swing.JButton tmbobat2;
+    private javax.swing.JButton tmbpanen;
+    private javax.swing.JButton tmbpupuk;
+    private javax.swing.JButton tmbsiram;
     // End of variables declaration//GEN-END:variables
 }

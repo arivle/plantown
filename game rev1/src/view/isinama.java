@@ -56,6 +56,7 @@ public class isinama extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 public void klikok(ActionListener action) {
+    namauser=insertnama.getText();
         okbutton.addActionListener(action);
         
     }

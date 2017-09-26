@@ -8,6 +8,7 @@ package controler;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.user;
+import view.isinama;
 import view.mainmenu;
 
 /**
@@ -23,7 +24,10 @@ c_isinama controler;
     public c_mainmenu(mainmenu view) {
 //        user user= new user(controler.getusername());
         this.view = view;
-//       view.setkotaknama(controler.getusername());
+//        System.out.println(controler.getusername());
+//        this.view.setkotaknama(controler.getusername());
+        System.out.println(isinama.namauser);
+//       view.setkotaknama(c_isinama.getusername());
         this.view.klikmain(new klikplay());
         this.view.klikbantuan(new klikbantuan());
         this.view.kliktentang(new kliktentang());

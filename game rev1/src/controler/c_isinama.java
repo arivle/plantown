@@ -38,6 +38,7 @@ public class c_isinama {
         }
     }
     public String getusername (){
+        System.out.println(view.getnama());
         return view.getnama();
     }
 }
