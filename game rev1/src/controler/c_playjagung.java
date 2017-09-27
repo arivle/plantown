@@ -7,9 +7,11 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.util.Duration;
+import javax.swing.Timer;
 import view.playjagung;
 
 /**
@@ -23,6 +25,7 @@ public class c_playjagung {
     String tanaman2 = "/gambar/2.png";
     String kosong = "/gambar/emptybox.png";
     playjagung view;
+    Timer timer;
 
     public c_playjagung(playjagung view) {
         this.view = view;
@@ -36,14 +39,17 @@ public class c_playjagung {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setboxgerak(siram);
+            System.out.println(siram);
             view.settanaman(tanaman2);
             try {
-                Thread.sleep(1000);
-//                view.setboxgerak(siram);
+
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println(kosong);
+                view.setboxgerak(kosong);
             } catch (InterruptedException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
 
     }
