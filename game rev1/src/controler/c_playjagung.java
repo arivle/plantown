@@ -10,8 +10,10 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.concurrent.Task;
 import javafx.util.Duration;
 import javax.swing.Timer;
+import model.user;
 import view.playjagung;
 
 /**
@@ -26,26 +28,37 @@ public class c_playjagung {
     String kosong = "/gambar/emptybox.png";
     playjagung view;
     Timer timer;
+    int umurjagung = 0;
+    boolean needsiram = false;
+    boolean needpanen = false;
+    boolean needgunting = false;
+    boolean needobat1 = false;
+    boolean needobat2 = false;
+    boolean needpupuk = false;
 
     public c_playjagung(playjagung view) {
         this.view = view;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.setVisible(true);
+
+    }
+
+    public void setbox(String set) {
+        view.setboxgerak(set);
     }
 
     private class kliksiram implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.setboxgerak(siram);
-            System.out.println(siram);
-            view.settanaman(tanaman2);
             try {
+                setbox(siram);
+                Thread.sleep(1000);
+                view.settanaman(tanaman2);
+                Thread.sleep(1000);
+                setbox(kosong);
 
-                TimeUnit.SECONDS.sleep(1);
-                System.out.println(kosong);
-                view.setboxgerak(kosong);
             } catch (InterruptedException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -62,4 +75,5 @@ public class c_playjagung {
             view.setVisible(false);
         }
     }
+    
 }

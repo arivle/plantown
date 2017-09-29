@@ -56,8 +56,9 @@ public class playjagung extends javax.swing.JFrame {
         boxtanaman.setText("tanaman");
         getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 300, 400));
 
+        boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lets play 2.png"))); // NOI18N
         boxgerak.setText("boxgerak");
-        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 250, 200));
+        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -10, 250, 200));
 
         tmbobat1.setText("jButton1");
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
@@ -71,7 +72,10 @@ public class playjagung extends javax.swing.JFrame {
         tmbgunting.setText("jButton4");
         getContentPane().add(tmbgunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
 
+        tmbpanen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cluritPKI.png"))); // NOI18N
         tmbpanen.setText("jButton5");
+        tmbpanen.setBorderPainted(false);
+        tmbpanen.setContentAreaFilled(false);
         getContentPane().add(tmbpanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 80, 80));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N

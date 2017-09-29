@@ -69,11 +69,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="boxgerak">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/lets play 2.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="boxgerak"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="100" width="250" height="200"/>
+          <AbsoluteConstraints x="100" y="-10" width="250" height="200"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -119,7 +122,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="tmbpanen">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/cluritPKI.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton5"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

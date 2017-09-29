@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.user;
 import view.isinama;
+import static view.isinama.namauser;
 import view.mainmenu;
 
 /**
@@ -21,10 +22,11 @@ public class c_isinama {
     mainmenu view2;
     user model;
     controllihat controler;
-
+public static String namauser="tes";
     public c_isinama(isinama view) {
         this.view = view;
         this.view.klikok(new klikmainmenu());
+        namauser = view.getnama();
         this.view.setVisible(true);
         
     }
