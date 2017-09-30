@@ -36,6 +36,8 @@ public class playjagung extends javax.swing.JFrame {
         tmbpupuk = new javax.swing.JButton();
         tmbgunting = new javax.swing.JButton();
         tmbpanen = new javax.swing.JButton();
+        boxumur = new javax.swing.JLabel();
+        boxhp = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,8 +58,9 @@ public class playjagung extends javax.swing.JFrame {
         boxtanaman.setText("tanaman");
         getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 300, 400));
 
+        boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lets play 2.png"))); // NOI18N
         boxgerak.setText("boxgerak");
-        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 250, 200));
+        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -10, 250, 200));
 
         tmbobat1.setText("jButton1");
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
@@ -71,8 +74,17 @@ public class playjagung extends javax.swing.JFrame {
         tmbgunting.setText("jButton4");
         getContentPane().add(tmbgunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
 
+        tmbpanen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cluritPKI.png"))); // NOI18N
         tmbpanen.setText("jButton5");
+        tmbpanen.setBorderPainted(false);
+        tmbpanen.setContentAreaFilled(false);
         getContentPane().add(tmbpanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 80, 80));
+
+        boxumur.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
+        getContentPane().add(boxumur, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 10, 80, 40));
+
+        boxhp.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
+        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 90, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
@@ -114,6 +126,12 @@ public class playjagung extends javax.swing.JFrame {
 
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+    public void setboxumur(String nama) {
+        boxumur.setText(nama);
+    }
+    public void setboxhp(String nama) {
+        boxhp.setText(nama);
     }
 
     /**
@@ -157,7 +175,9 @@ public class playjagung extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JLabel boxgerak;
+    private javax.swing.JLabel boxhp;
     private javax.swing.JLabel boxtanaman;
+    private javax.swing.JLabel boxumur;
     private javax.swing.JToggleButton map;
     private javax.swing.JButton tmbgunting;
     private javax.swing.JButton tmbobat1;

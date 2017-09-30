@@ -22,16 +22,13 @@ c_isinama controler;
     user model;
     
     public c_mainmenu(mainmenu view) {
-//        user user= new user(controler.getusername());
         this.view = view;
-//        System.out.println(controler.getusername());
-//        this.view.setkotaknama(controler.getusername());
-        System.out.println(isinama.namauser);
-//       view.setkotaknama(c_isinama.getusername());
+        System.out.println(controler.namauser);
         this.view.klikmain(new klikplay());
         this.view.klikbantuan(new klikbantuan());
         this.view.kliktentang(new kliktentang());
         this.view.klikexit(new klikexit());
+        view.setkotaknama(controler.namauser);
         this.view.setVisible(true);
     }
 
