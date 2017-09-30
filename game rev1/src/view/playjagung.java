@@ -36,6 +36,8 @@ public class playjagung extends javax.swing.JFrame {
         tmbpupuk = new javax.swing.JButton();
         tmbgunting = new javax.swing.JButton();
         tmbpanen = new javax.swing.JButton();
+        boxumur = new javax.swing.JLabel();
+        boxhp = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,6 +80,12 @@ public class playjagung extends javax.swing.JFrame {
         tmbpanen.setContentAreaFilled(false);
         getContentPane().add(tmbpanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 80, 80));
 
+        boxumur.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
+        getContentPane().add(boxumur, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 10, 80, 40));
+
+        boxhp.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
+        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 90, 40));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -118,6 +126,12 @@ public class playjagung extends javax.swing.JFrame {
 
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+    public void setboxumur(String nama) {
+        boxumur.setText(nama);
+    }
+    public void setboxhp(String nama) {
+        boxhp.setText(nama);
     }
 
     /**
@@ -161,7 +175,9 @@ public class playjagung extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JLabel boxgerak;
+    private javax.swing.JLabel boxhp;
     private javax.swing.JLabel boxtanaman;
+    private javax.swing.JLabel boxumur;
     private javax.swing.JToggleButton map;
     private javax.swing.JButton tmbgunting;
     private javax.swing.JButton tmbobat1;

@@ -15,7 +15,7 @@ import java.util.Date;
  */
 public class waktu {
     public int getdetik (){
-        DateFormat waktu = new SimpleDateFormat("ss");
+        DateFormat waktu = new SimpleDateFormat();
         Date date = new Date();
         
         return date.getSeconds();
