@@ -54,23 +54,28 @@ public class playjagung extends javax.swing.JFrame {
         tmbsiram.setContentAreaFilled(false);
         getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 80));
 
-        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1.png"))); // NOI18N
-        boxtanaman.setText("tanaman");
-        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 300, 400));
+        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/jagungMudaAnimated1.png"))); // NOI18N
+        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 300, 400));
 
-        boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lets play 2.png"))); // NOI18N
+        boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
         boxgerak.setText("boxgerak");
-        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -10, 250, 200));
+        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 250, 200));
 
+        tmbobat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obatCair.png"))); // NOI18N
         tmbobat1.setText("jButton1");
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
 
+        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/2.png"))); // NOI18N
         tmbobat2.setText("jButton2");
         getContentPane().add(tmbobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, 80));
 
+        tmbpupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/poepoek.png"))); // NOI18N
         tmbpupuk.setText("jButton3");
+        tmbpupuk.setBorderPainted(false);
+        tmbpupuk.setContentAreaFilled(false);
         getContentPane().add(tmbpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 80, 80));
 
+        tmbgunting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk.png"))); // NOI18N
         tmbgunting.setText("jButton4");
         getContentPane().add(tmbgunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
 

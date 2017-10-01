@@ -57,31 +57,33 @@
     <Component class="javax.swing.JLabel" name="boxtanaman">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/1.png"/>
+          <Image iconType="3" name="/gambar/jagungMudaAnimated1.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="tanaman"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="160" width="300" height="400"/>
+          <AbsoluteConstraints x="330" y="160" width="300" height="400"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="boxgerak">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/lets play 2.png"/>
+          <Image iconType="3" name="/gambar/emptybox.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="boxgerak"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="100" y="-10" width="250" height="200"/>
+          <AbsoluteConstraints x="500" y="120" width="250" height="200"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="tmbobat1">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/obatCair.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton1"/>
       </Properties>
       <Constraints>
@@ -92,6 +94,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="tmbobat2">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/2.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton2"/>
       </Properties>
       <Constraints>
@@ -102,7 +107,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="tmbpupuk">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/poepoek.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton3"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -112,6 +122,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="tmbgunting">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/pupuk.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton4"/>
       </Properties>
       <Constraints>
