@@ -50,28 +50,29 @@ public class c_playjagung {
 
     public void start() {
         //sehari = 5 detik,perawatan = 15 detik
-        mytimer.schedule(task, 1000,5000);
+        mytimer.schedule(task, 1000, 5000);
         mytimer.schedule(cek, 1000, 1000);
     }
 
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-           view.setboxumur(umurjagung +" hari");
-           umurjagung++;
-            if (umurjagung % 5 ==0) {
+            view.setboxumur(umurjagung + " hari");
+            umurjagung++;
+            if (umurjagung % 5 == 0) {
                 hpjagung--;
-                view.setboxhp(""+hpjagung);
+                view.setboxhp("" + hpjagung);
             }
         }
     };
-TimerTask cek = new TimerTask() {
+    TimerTask cek = new TimerTask() {
         @Override
         public void run() {
             detik++;
-            System.out.println("cek "+detik);
+            System.out.println("cek " + detik);
         }
     };
+
     public void setbox(String set) {
         view.setboxgerak(set);
     }
