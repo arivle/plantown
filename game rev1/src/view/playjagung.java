@@ -59,7 +59,7 @@ public class playjagung extends javax.swing.JFrame {
 
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
         boxgerak.setText("boxgerak");
-        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 250, 200));
+        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 250, 200));
 
         tmbobat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obatCair.png"))); // NOI18N
         tmbobat1.setText("jButton1");
@@ -124,17 +124,23 @@ public class playjagung extends javax.swing.JFrame {
     public void klikpanen(ActionListener action) {
         tmbpanen.addActionListener(action);
     }
-
+    
     public void settanaman(String tanaman) {
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource(tanaman)));
     }
-
+    
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
+
+    public void setvisibleboxgerak(boolean bool) {
+        boxgerak.setVisible(bool);
+    }
+
     public void setboxumur(String nama) {
         boxumur.setText(nama);
     }
+
     public void setboxhp(String nama) {
         boxhp.setText(nama);
     }

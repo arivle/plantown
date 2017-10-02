@@ -23,9 +23,11 @@ import java.util.TimerTask;
  */
 public class c_playjagung {
 
-    String siram = "/gambar/siram.png";
+    String siram = "/gambar/siram.gif";
     String tanaman1 = "/gambar/1.png";
     String tanaman2 = "/gambar/2.png";
+    String obat1 = "/gambar/semprot.gif";
+    String obat2 = "/gambar/obatcair.png";
     String kosong = "/gambar/emptybox.png";
     playjagung view;
     int detik;
@@ -38,6 +40,7 @@ public class c_playjagung {
     boolean needobat2 = false;
     boolean needpupuk = false;
     Timer mytimer = new Timer();
+    Timer  timer = new Timer (2000, new kliksiram());
 
     public c_playjagung(playjagung view) {
         this.view = view;
@@ -82,16 +85,25 @@ public class c_playjagung {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                setbox(siram);
-                Thread.sleep(1000);
-                view.settanaman(tanaman2);
-                Thread.sleep(1000);
-                setbox(kosong);
-
+                view.setboxgerak(obat2);
+            System.out.println(obat2);
+            view.settanaman(tanaman2);
+                Thread.sleep(2000);
+                view.setboxgerak(siram);
+                System.out.println("delay");
             } catch (InterruptedException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+                
+        }
+    }
 
+    private class klikobat1 implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
     }
