@@ -6,6 +6,7 @@ d. obat 2
 e. sarung tangan
 f. clurit
 
+
 aset gerak (ukuran 250*200 px)
 a. tempat air saat siram
 b. pupuk saat dituang
