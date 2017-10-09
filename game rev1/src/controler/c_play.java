@@ -14,9 +14,15 @@ import view.play;
  * @author acer
  */
 public class c_play {
-    
+
     play view;
-    
+    boolean statejagung = false;
+    boolean statetebu = false;
+    boolean statembakau = false;
+    c_playjagung jagung;
+    c_playtebu tebu;
+    c_playtembakau tembakau;
+
     public c_play(play view) {
         this.view = view;
         view.playjagung(new playjagung());
@@ -24,18 +30,28 @@ public class c_play {
         view.playtembakau(new playtembakau());
         view.setVisible(true);
     }
-    
+
     private class playjagung implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_playjagung a = new controler.c_playjagung(new view.playjagung());
             view.setVisible(false);
+            if (statejagung) {
+                System.out.println("udah klik");
+                jagung.showview();
+            } else {
+                controler.c_playjagung a = new controler.c_playjagung(new view.playjagung());
+                statejagung = true;
+            }
         }
     }
 
+    public void showview() {
+        this.view.setVisible(true);
+    }
+
     private class playtebu implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
             controler.c_playtebu a = new controler.c_playtebu(new view.playtebu());
@@ -44,7 +60,7 @@ public class c_play {
     }
 
     private class playtembakau implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
             controler.c_playtembakau a = new controler.c_playtembakau(new view.playtembakau());
