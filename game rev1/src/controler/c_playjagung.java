@@ -22,14 +22,15 @@ import java.util.TimerTask;
  * @author acer
  */
 public class c_playjagung {
-
+    
     String siram = "/gambar/siram.gif";
-    String tanaman1 = "/gambar/1.png";
-    String tanaman2 = "/gambar/2.png";
+    String tanaman1 = "/gambar/jagung1.gif";
+    String tanaman2 = "/gambar/jagungMudaAnimated1.png";
     String obat1 = "/gambar/semprot.gif";
     String obat2 = "/gambar/obatcair.png";
     String kosong = "/gambar/emptybox.png";
     playjagung view;
+    c_play map;
     int detik;
     int umurjagung = 0;
     int hpjagung = 100;
@@ -40,23 +41,23 @@ public class c_playjagung {
     boolean needobat2 = false;
     boolean needpupuk = false;
     Timer mytimer = new Timer();
-    Timer  timer = new Timer (2000, new kliksiram());
-
+    
     public c_playjagung(playjagung view) {
         this.view = view;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
+        view.stop(new stop());
         start();
         view.setVisible(true);
-
+        
     }
-
+    
     public void start() {
         //sehari = 5 detik,perawatan = 15 detik
         mytimer.schedule(task, 1000, 5000);
         mytimer.schedule(cek, 1000, 1000);
     }
-
+    
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
@@ -75,46 +76,51 @@ public class c_playjagung {
             System.out.println("cek " + detik);
         }
     };
-
+    
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-
+    
     private class kliksiram implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            try {
-                view.setboxgerak(obat2);
-            System.out.println(obat2);
+            int detiktimer = detik + 2;
+            boolean loop = true;
+            setbox(siram);
             view.settanaman(tanaman2);
-                Thread.sleep(2000);
-                view.setboxgerak(siram);
-                System.out.println("delay");
-            } catch (InterruptedException ex) {
-                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
-                
         }
     }
-
+    
+    public void showview() {
+        view.setVisible(true);
+    }
+    
+    private class stop implements ActionListener {
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.setboxgerak(kosong);
+        }
+        
+    }
+    
     private class klikobat1 implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-
+        
     }
-
+    
     private class klikmap implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_play a = new controler.c_play(new view.play());
-            view.setVisible(false);
+            map.showview();
         }
     }
-
+    
 }

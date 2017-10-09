@@ -34,41 +34,23 @@ public class play extends javax.swing.JFrame {
         tmbtebu = new javax.swing.JButton();
         tmbjagung = new javax.swing.JButton();
         tmbtembakau = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tmbtebu.setText("tebu");
+        getContentPane().add(tmbtebu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
         tmbjagung.setText("jagung");
+        getContentPane().add(tmbjagung, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
         tmbtembakau.setText("tembakau");
+        getContentPane().add(tmbtembakau, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(tmbtebu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tmbjagung)
-                .addGap(118, 118, 118))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(319, 319, 319)
-                .addComponent(tmbtembakau)
-                .addContainerGap(402, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tmbtebu)
-                    .addComponent(tmbjagung))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                .addComponent(tmbtembakau)
-                .addGap(223, 223, 223))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/map.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,6 +102,7 @@ public void playtebu(ActionListener action) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton tmbjagung;
     private javax.swing.JButton tmbtebu;
     private javax.swing.JButton tmbtembakau;
