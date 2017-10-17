@@ -46,7 +46,7 @@ public class play extends javax.swing.JFrame {
         getContentPane().add(tmbjagung, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
         tmbtembakau.setText("tembakau");
-        getContentPane().add(tmbtembakau, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+        getContentPane().add(tmbtembakau, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/map.png"))); // NOI18N
         jLabel1.setText("jLabel1");

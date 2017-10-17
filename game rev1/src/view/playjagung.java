@@ -73,13 +73,13 @@ public class playjagung extends javax.swing.JFrame {
         tmbobat1.setContentAreaFilled(false);
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
 
-        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk1.png"))); // NOI18N
+        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
         tmbobat2.setText("jButton2");
         tmbobat2.setBorderPainted(false);
         tmbobat2.setContentAreaFilled(false);
         getContentPane().add(tmbobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, 80));
 
-        tmbpupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk2.png"))); // NOI18N
+        tmbpupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk1.png"))); // NOI18N
         tmbpupuk.setText("jButton3");
         tmbpupuk.setBorderPainted(false);
         tmbpupuk.setContentAreaFilled(false);
@@ -157,7 +157,7 @@ public class playjagung extends javax.swing.JFrame {
     }
 
     public void setboxhp(String nama) {
-        boxhp.setText(nama);
+        boxhp.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
 
     /**
