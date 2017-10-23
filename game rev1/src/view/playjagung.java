@@ -35,7 +35,7 @@ public class playjagung extends javax.swing.JFrame {
         tmbobat1 = new javax.swing.JButton();
         tmbobat2 = new javax.swing.JButton();
         tmbpupuk = new javax.swing.JButton();
-        tmbgunting = new javax.swing.JButton();
+        tmbtangan = new javax.swing.JButton();
         tmbpanen = new javax.swing.JButton();
         boxumur = new javax.swing.JLabel();
         btnstop = new javax.swing.JButton();
@@ -85,11 +85,11 @@ public class playjagung extends javax.swing.JFrame {
         tmbpupuk.setContentAreaFilled(false);
         getContentPane().add(tmbpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 80, 80));
 
-        tmbgunting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tangan.png"))); // NOI18N
-        tmbgunting.setText("jButton4");
-        tmbgunting.setBorderPainted(false);
-        tmbgunting.setContentAreaFilled(false);
-        getContentPane().add(tmbgunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
+        tmbtangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tangan.png"))); // NOI18N
+        tmbtangan.setText("jButton4");
+        tmbtangan.setBorderPainted(false);
+        tmbtangan.setContentAreaFilled(false);
+        getContentPane().add(tmbtangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
 
         tmbpanen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cluritPKI.png"))); // NOI18N
         tmbpanen.setText("jButton5");
@@ -129,8 +129,8 @@ public class playjagung extends javax.swing.JFrame {
         tmbpupuk.addActionListener(action);
     }
     
-    public void klikgunting(ActionListener action) {
-        tmbsiram.addActionListener(action);
+    public void kliktangan(ActionListener action) {
+        tmbtangan.addActionListener(action);
     }
     
     public void klikpanen(ActionListener action) {
@@ -206,11 +206,11 @@ public class playjagung extends javax.swing.JFrame {
     private javax.swing.JLabel boxumur;
     private javax.swing.JButton btnstop;
     private javax.swing.JToggleButton map;
-    private javax.swing.JButton tmbgunting;
     private javax.swing.JButton tmbobat1;
     private javax.swing.JButton tmbobat2;
     private javax.swing.JButton tmbpanen;
     private javax.swing.JButton tmbpupuk;
     private javax.swing.JButton tmbsiram;
+    private javax.swing.JButton tmbtangan;
     // End of variables declaration//GEN-END:variables
 }

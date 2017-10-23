@@ -23,9 +23,12 @@ public class c_playjagung {
     String obat1 = "/gambar/semprot.gif";
     String pupuk = "/gambar/pupuk1.gif";
     String kosong = "/gambar/emptybox.png";
+    String jagungsiappanen = "/gambar/jagungsiappanen.gif";
+    String tangan = "/gambar/glove.gif";
     playjagung view;
     c_play map;
     int detik;
+    int getdetik = -1;
     int umurjagung = 0;
     int hpjagung = 100;
     boolean needsiram = false;
@@ -43,6 +46,7 @@ public class c_playjagung {
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
+        view.kliktangan(new kliktangan());
         view.stop(new stop());
         start();
         view.setVisible(true);
@@ -73,15 +77,21 @@ public class c_playjagung {
             detik++;
             System.out.println("cek " + detik);
 
-            //cek health
-            if (umurjagung == 30) {
-                view.settanaman(tanaman2);
+            if (loop) {
+                loop = false;
+                getdetik = detik + 2;
+                System.out.println("get detik " + getdetik);
             }
-            if (umurjagung == 75) {
-                view.setboxhp("/gambar/health1.png");
+            if (getdetik == detik) {
+                System.out.println("cek kondisi " + getdetik);
+                setbox(kosong);
+            }
+            //cek health
+            if (umurjagung == 85) {
+                view.settanaman(jagungsiappanen);
             }
             if (umurjagung == 50) {
-                view.setboxhp("/gambar/health2.png");
+                view.setboxhp(tanaman2);
             }
             if (umurjagung == 25) {
                 view.setboxhp("/gambar/health3.png");
@@ -110,6 +120,7 @@ public class c_playjagung {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            loop = true;
             setbox(pupuk);
         }
     }
@@ -118,10 +129,19 @@ public class c_playjagung {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            loop = true;
             setbox(obat1);
         }
 
     }
+private class kliktangan implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           loop = true;
+            setbox(tangan);
+        }
+}
 
     public void showview() {
         view.setVisible(true);
