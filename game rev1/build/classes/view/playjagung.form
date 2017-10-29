@@ -62,7 +62,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="280" y="210" width="300" height="400"/>
+          <AbsoluteConstraints x="290" y="200" width="300" height="400"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -186,13 +186,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="btnstop">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="stop"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="boxpopup">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="680" y="370" width="-1" height="-1"/>
+          <AbsoluteConstraints x="210" y="170" width="200" height="260"/>
         </Constraint>
       </Constraints>
     </Component>
