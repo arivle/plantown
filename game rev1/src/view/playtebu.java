@@ -54,8 +54,8 @@ public class playtebu extends javax.swing.JFrame {
         tmbsiram.setContentAreaFilled(false);
         getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 80));
 
-        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/jagung1.gif"))); // NOI18N
-        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 300, 400));
+        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tebu1.gif"))); // NOI18N
+        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 300, 400));
 
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
         boxgerak.setText("boxgerak");
@@ -72,7 +72,7 @@ public class playtebu extends javax.swing.JFrame {
         tmbobat1.setContentAreaFilled(false);
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
 
-        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
+        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat2.png"))); // NOI18N
         tmbobat2.setText("jButton2");
         tmbobat2.setBorderPainted(false);
         tmbobat2.setContentAreaFilled(false);

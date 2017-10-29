@@ -16,9 +16,6 @@ import view.play;
 public class c_play {
 
     play view;
-    boolean statejagung = false;
-    boolean statetebu = false;
-    boolean statembakau = false;
     c_playjagung jagung;
     c_playtebu tebu;
     c_playtembakau tembakau;
@@ -35,14 +32,7 @@ public class c_play {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.setVisible(false);
-            if (statejagung) {
-                System.out.println("udah klik");
-                jagung.showview();
-            } else {
-                controler.c_playjagung a = new controler.c_playjagung(new view.playjagung());
-                statejagung = true;
-            }
+            controler.c_playjagung d = new controler.c_playjagung(new view.playjagung());
         }
     }
 
@@ -54,7 +44,7 @@ public class c_play {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_playtebu a = new controler.c_playtebu(new view.playtebu());
+           controler.c_playtebu c = new controler.c_playtebu(new view.playtebu());
             view.setVisible(false);
         }
     }
@@ -63,7 +53,7 @@ public class c_play {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_playtembakau a = new controler.c_playtembakau(new view.playtembakau());
+            controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau());
             view.setVisible(false);
         }
     }

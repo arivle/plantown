@@ -16,14 +16,14 @@ import java.util.TimerTask;
  * @author acer
  */
 public class c_playjagung {
-
+    
     String siram = "/gambar/siram.gif";
     String tanaman1 = "/gambar/jagung1.gif";
-    String tanaman2 = "/gambar/jagung2.png";
+    String tanaman2 = "/gambar/jagung2.gif";
+    String tanaman3 = "/gambar/jagungsiappanen.gif";
     String obat1 = "/gambar/semprot.gif";
     String pupuk = "/gambar/pupuk1.gif";
     String kosong = "/gambar/emptybox.png";
-    String jagungsiappanen = "/gambar/jagungsiappanen.gif";
     String tangan = "/gambar/glove.gif";
     playjagung view;
     c_play map;
@@ -39,36 +39,46 @@ public class c_playjagung {
     boolean needpupuk = false;
     boolean loop = false;
     Timer mytimer = new Timer();
-
+    
     public c_playjagung(playjagung view) {
+        System.out.println("masuk jagung");
         this.view = view;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
         view.kliktangan(new kliktangan());
-        view.stop(new stop());
-        start();
-        view.setVisible(true);
-
+//        start();
+//        view.setVisible(true);
+playgame();
     }
 
+    public void playgame() {
+        view.setVisible(true);
+    }
+
+    public void closegame() {
+        view.setVisible(false);
+    }
+    
     public void start() {
         //sehari = 5 detik,perawatan = 15 detik
         mytimer.schedule(task, 1000, 5000);
         mytimer.schedule(cek, 1000, 1000);
     }
-
+    
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
             view.setboxumur(umurjagung + " hari");
             umurjagung++;
-            if (umurjagung % 1 == 0) {
-                hpjagung--;
-//                view.setboxhp("" + hpjagung);
+            if (umurjagung % 4 ==0) {
+                System.out.println("butuh siram");
             }
-
+            if (umurjagung% 6 == 0) {
+                System.out.println("butuh perawatan");
+            }
+            
         }
     };
     TimerTask cek = new TimerTask() {
@@ -76,7 +86,7 @@ public class c_playjagung {
         public void run() {
             detik++;
             System.out.println("cek " + detik);
-
+            
             if (loop) {
                 loop = false;
                 getdetik = detik + 2;
@@ -88,80 +98,78 @@ public class c_playjagung {
             }
             //cek health
             if (umurjagung == 85) {
-                view.settanaman(jagungsiappanen);
+                view.settanaman(tanaman3);
             }
             if (umurjagung == 50) {
-                view.setboxhp(tanaman2);
+                view.settanaman(tanaman2);
             }
             if (umurjagung == 25) {
-                view.setboxhp("/gambar/health3.png");
+                view.settanaman(tanaman1);
             }
-            if (umurjagung == 0) {
-                view.setboxhp(kosong);
-            }
-
+            
         }
     };
-
+    
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-
+    
     private class kliksiram implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
             setbox(siram);
         }
     }
-
+    
     private class klikpupuk implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
             setbox(pupuk);
         }
     }
-
+    
     private class klikobat1 implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
             setbox(obat1);
         }
-
+        
     }
-private class kliktangan implements ActionListener{
 
+    private class kliktangan implements ActionListener {
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-           loop = true;
+            loop = true;
             setbox(tangan);
         }
-}
-
+    }
+    
     public void showview() {
         view.setVisible(true);
     }
-
+    
     private class stop implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setboxgerak(kosong);
         }
-
+        
     }
-
+    
     private class klikmap implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            map.showview();
+            controler.c_play a = new controler.c_play(new view.play());
         }
     }
-
+    
 }

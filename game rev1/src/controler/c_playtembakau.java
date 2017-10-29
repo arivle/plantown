@@ -17,7 +17,7 @@ import view.playtembakau;
  * @author acer
  */
 public class c_playtembakau {
-
+    
     String siram = "/gambar/siram.gif";
     String tanaman1 = "/gambar/jagung1.gif";
     String tanaman2 = "/gambar/jagung2.png";
@@ -37,17 +37,22 @@ public class c_playtembakau {
     boolean needpupuk = false;
     boolean loop = false;
     Timer mytimer = new Timer();
-
+    
     public c_playtembakau(playtembakau view) {
+        System.out.println("masuk tembakau");
         this.view = view;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
         view.stop(new stop());
-        start();
+//        start();
         view.setVisible(true);
 
+    }
+
+    public void playgame() {
+        this.view.setVisible(true);
     }
 
     public void start() {
@@ -55,7 +60,7 @@ public class c_playtembakau {
         mytimer.schedule(task, 1000, 5000);
         mytimer.schedule(cek, 1000, 1000);
     }
-
+    
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
@@ -65,7 +70,7 @@ public class c_playtembakau {
                 hptembakau--;
 //                view.setboxhp("" + hpjagung);
             }
-
+            
         }
     };
     TimerTask cek = new TimerTask() {
@@ -92,53 +97,53 @@ public class c_playtembakau {
             }
         }
     };
-
+    
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-
+    
     private class kliksiram implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
             setbox(siram);
         }
     }
-
+    
     private class klikpupuk implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             setbox(pupuk);
         }
     }
-
+    
     private class klikobat1 implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             setbox(obat1);
         }
     }
-
+    
     public void showview() {
         view.setVisible(true);
     }
-
+    
     private class stop implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setboxgerak(kosong);
         }
     }
-
+    
     private class klikmap implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            map.showview();
+            controler.c_play a = new controler.c_play(new view.play());
         }
     }
 }

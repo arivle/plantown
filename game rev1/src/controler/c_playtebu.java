@@ -39,15 +39,19 @@ public class c_playtebu {
     Timer mytimer = new Timer();
 
     public c_playtebu (playtebu view) {
+        System.out.println("masuk tebu");
         this.view = view;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
         view.stop(new stop());
-        start();
+//        start();
         view.setVisible(true);
 
+    }
+public void playgame() {
+        view.setVisible(true);
     }
 
     public void start() {
@@ -138,7 +142,7 @@ public class c_playtebu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            map.showview();
+            controler.c_play a = new controler.c_play(new view.play());
         }
     }
 }

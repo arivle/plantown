@@ -73,7 +73,7 @@ public class playjagung extends javax.swing.JFrame {
         tmbobat1.setContentAreaFilled(false);
         getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
 
-        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
+        tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat2.png"))); // NOI18N
         tmbobat2.setText("jButton2");
         tmbobat2.setBorderPainted(false);
         tmbobat2.setContentAreaFilled(false);
