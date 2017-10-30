@@ -39,6 +39,7 @@ public class playjagung extends javax.swing.JFrame {
         tmbpanen = new javax.swing.JButton();
         boxumur = new javax.swing.JLabel();
         boxpopup = new javax.swing.JLabel();
+        boxpoupemot = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,7 +100,8 @@ public class playjagung extends javax.swing.JFrame {
 
         boxumur.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
         getContentPane().add(boxumur, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 10, 80, 40));
-        getContentPane().add(boxpopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 200, 260));
+        getContentPane().add(boxpopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 200, 260));
+        getContentPane().add(boxpoupemot, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 250));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
@@ -144,6 +146,10 @@ public class playjagung extends javax.swing.JFrame {
     }
     public void setboxpopup(String nama) {
         boxpopup.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+    public void setboxpopupemot(String nama) {
+        System.out.println("emot"+nama);
+        boxpoupemot.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
      
 
@@ -202,6 +208,7 @@ public class playjagung extends javax.swing.JFrame {
     private javax.swing.JLabel boxgerak;
     private javax.swing.JLabel boxhp;
     private javax.swing.JLabel boxpopup;
+    private javax.swing.JLabel boxpoupemot;
     private javax.swing.JLabel boxtanaman;
     private javax.swing.JLabel boxumur;
     private javax.swing.JToggleButton map;

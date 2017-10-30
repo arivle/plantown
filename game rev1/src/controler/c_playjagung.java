@@ -16,21 +16,8 @@ import java.util.TimerTask;
  *
  * @author acer
  */
-public class c_playjagung {
+public class c_playjagung extends stringgambar {
     
-    String siram = "/gambar/siram.gif";
-    String tanaman1 = "/gambar/jagung1.gif";
-    String tanaman2 = "/gambar/jagung2.gif";
-    String tanaman3 = "/gambar/jagungsiappanen.gif";
-    String obat1 = "/gambar/semprot.gif";
-    String pupuk = "/gambar/pupuk1.gif";
-    String kosong = "/gambar/emptybox.png";
-    String tangan = "/gambar/glove.gif";
-    String panen = "/gambar/panen.gif";
-    String popupsiram = "/gambar/popupMintaAir.gif";
-    String Popuppupuk = "/gambar/popupMintaPupuk.gif";
-    String popupobat1 = "/gambar/popupMintaObatCair.gif";
-    String popuprawat ="/gambar/popupMintarawat.gif";
     playjagung view;
     c_play map;
     int detik;
@@ -46,7 +33,7 @@ public class c_playjagung {
     boolean needpupuk = false;
     boolean loop = false;
     Timer mytimer = new Timer();
-    Random rand=new Random();
+    Random rand = new Random();
     
     public c_playjagung(playjagung view) {
         System.out.println("masuk jagung");
@@ -55,7 +42,9 @@ public class c_playjagung {
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
+        view.klikobat2(new klikobat2());
         view.kliktangan(new kliktangan());
+        view.klikpanen(new klikpanen());
         start();
 //        view.setVisible(true);
         playgame();
@@ -74,22 +63,28 @@ public class c_playjagung {
         mytimer.schedule(task, 1000, 5000);
         mytimer.schedule(cek, 1000, 1000);
     }
-    public void rawat (int rawat){
-        if (rawat==1) {
+    
+    public void rawat(int rawat) {
+        if (rawat == 1) {
             view.setboxpopup(popupobat1);
-                statuspopup = obat1;
+            statuspopup = obat1;
         }
-        if (rawat==2) {
-            System.out.println("butuh obat2");
+        if (rawat == 2) {
+            view.setboxpopup(popupobat2);
+            statuspopup = obat2;
         }
-        if (rawat==3) {
+        if (rawat == 3) {
             view.setboxpopup(Popuppupuk);
-                statuspopup = pupuk;
+            statuspopup = pupuk;
         }
-        if (rawat==4) {
+        if (rawat == 4) {
             view.setboxpopup(popuprawat);
-                statuspopup = tangan;
+            statuspopup = tangan;
         }
+    }
+
+    public void popupemot(String emot) {
+        view.setboxpopupemot(emot);
     }
     TimerTask task = new TimerTask() {
         @Override
@@ -102,7 +97,7 @@ public class c_playjagung {
             }
             if (umurjagung % 6 == 0) {
                 int randomrawat = rand.nextInt(4);
-                rawat(randomrawat+1);
+                rawat(randomrawat + 1);
             }
             
         }
@@ -120,17 +115,18 @@ public class c_playjagung {
             }
             if (getdetik == detik) {
                 System.out.println("cek kondisi " + getdetik);
+                popupemot("");
                 setbox(kosong);
             }
             //cek health
             if (umurjagung == 85) {
-                view.settanaman(tanaman3);
+                view.settanaman(jagung3);
             }
             if (umurjagung == 50) {
-                view.settanaman(tanaman2);
+                view.settanaman(jagung2);
             }
             if (umurjagung == 25) {
-                view.settanaman(tanaman1);
+                view.settanaman(jagung1);
             }
             
         }
@@ -139,25 +135,31 @@ public class c_playjagung {
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-    public void health (){
+    
+    public void health() {
         switch (health) {
             case 4:
                 view.setboxhp("/gambar/health3.png");
                 health--;
+                popupemot(popupsakit);
                 break;
             case 3:
                 view.setboxhp("/gambar/health2.png");
+                popupemot(popupsakit);
                 health--;
                 break;
             case 2:
                 view.setboxhp("/gambar/health1.png");
+                popupemot(popupsakit);
                 health--;
                 break;
             default:
                 System.out.println("tanaman mati");
+                popupemot(popupsakit);
                 break;
         }
     }
+    
     private class kliksiram implements ActionListener {
         
         @Override
@@ -177,7 +179,7 @@ public class c_playjagung {
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
-            setbox(pupuk);           
+            setbox(pupuk);
             if (statuspopup.equals(pupuk)) {
                 view.setboxpopup("");
             } else {
@@ -191,7 +193,7 @@ public class c_playjagung {
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
-            setbox(obat1);          
+            setbox(obat1);
             if (statuspopup.equals(obat1)) {
                 view.setboxpopup("");
             } else {
@@ -200,22 +202,28 @@ public class c_playjagung {
         }
         
     }
-
+    
     private class klikobat2 implements ActionListener {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            loop = true;
+            setbox(obat2);
+            if (statuspopup.equals(obat2)) {
+                view.setboxpopup("");
+            } else {
+                health();
+            }
         }
         
     }
-
+    
     private class kliktangan implements ActionListener {
         
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
-            setbox(tangan);          
+            setbox(tangan);
             if (statuspopup.equals(tangan)) {
                 view.setboxpopup("");
             } else {
@@ -224,16 +232,30 @@ public class c_playjagung {
         }
     }
     
+    private class klikpanen implements ActionListener {
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            loop = true;
+            setbox(panen);
+            if (statuspopup.equals(panen)) {
+                view.setboxpopup("");
+            } else {
+                health();
+            }
+        }
+        
+    }
+    
     public void showview() {
         view.setVisible(true);
     }
-    
     
     private class klikmap implements ActionListener {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_play a = new controler.c_play(new view.play());
+            view.setVisible(false);
         }
     }
     
