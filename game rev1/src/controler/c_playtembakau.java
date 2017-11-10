@@ -46,7 +46,7 @@ public class c_playtembakau {
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
         view.stop(new stop());
-//        start();
+        start();
         view.setVisible(true);
 
     }

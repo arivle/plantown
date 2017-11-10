@@ -6,6 +6,7 @@
 package view;
 
 import controler.controllihat;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,8 +17,9 @@ public class GameRev1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         controler.c_viewawal a = new controler.c_viewawal(new view.viewawal(),new controllihat());
+//controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko());
     }
     
 }

@@ -66,6 +66,18 @@ public void playtebu(ActionListener action) {
         tmbtembakau.addActionListener(action);
     }
 
+    public void setdisable(String set) {
+        if (set.equals("jagung")) {
+            tmbjagung.setEnabled(false);
+        }
+        if (set.equals("tembakau")) {
+            tmbtembakau.setEnabled(false);
+        }
+        if (set.equals("tebu")) {
+            tmbtebu.setEnabled(false);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */

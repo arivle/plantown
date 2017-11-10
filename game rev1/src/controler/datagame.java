@@ -10,11 +10,17 @@ package controler;
  * @author acer
  */
 
-public class stringgambar {
+public class datagame {
     
+    String tunasjagung = "/gambar/tunasjagung.gif";
     String jagung1 = "/gambar/jagung1.gif";
     String jagung2 = "/gambar/jagung2.gif";
     String jagung3 = "/gambar/jagungsiappanen.gif";
+    
+    String tunastebu = "/gambar/tunasTebu.gif";
+    String tebu1 = "/gambar/tebu1.gif";
+    String tebu2 = "/gambar/tebu2.gif";
+    String tebu3 = "/gambar/tebusiappanen.gif";
     
     String siram = "/gambar/siram.gif";
     String obat1 = "/gambar/semprot.gif";
@@ -38,4 +44,13 @@ public class stringgambar {
     String health3 = "/gambar/health3.png";
     String health2 = "/gambar/health2.png";
     String health1 = "/gambar/health1.png";
+    
+    int jumlahair=0;
+    int jumlahpupuk=0;
+    int jumlahobat1=0;
+    int jumlahobat2=0;
+    int jumlahpanenjagung=0;
+    int jumlahpanentebu=0;
+    int jumlahpanentembakau=0;
+    
 }

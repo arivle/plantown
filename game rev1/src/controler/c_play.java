@@ -7,6 +7,10 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.modeltoko;
 import view.play;
 
 /**
@@ -32,19 +36,27 @@ public class c_play {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_playjagung d = new controler.c_playjagung(new view.playjagung());
+            try {
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeltoko());
+            } catch (SQLException ex) {
+                Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
-    public void showview() {
-        this.view.setVisible(true);
+    public void enablemap(String set) {
+        view.setdisable(set);
     }
 
     private class playtebu implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-           controler.c_playtebu c = new controler.c_playtebu(new view.playtebu());
+            try {
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeltoko());
+            } catch (SQLException ex) {
+                Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
+            }
             view.setVisible(false);
         }
     }

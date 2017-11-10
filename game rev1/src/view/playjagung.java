@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  * @author acer
  */
 public class playjagung extends javax.swing.JFrame {
-    
+
     public playjagung() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -40,6 +40,12 @@ public class playjagung extends javax.swing.JFrame {
         boxumur = new javax.swing.JLabel();
         boxpopup = new javax.swing.JLabel();
         boxpoupemot = new javax.swing.JLabel();
+        setuang = new javax.swing.JLabel();
+        sisaair = new javax.swing.JLabel();
+        sisaobat1 = new javax.swing.JLabel();
+        sisaobat2 = new javax.swing.JLabel();
+        sisapupuk = new javax.swing.JLabel();
+        tmbtoko = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,10 +57,9 @@ public class playjagung extends javax.swing.JFrame {
         getContentPane().add(map, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 81, -1));
 
         tmbsiram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
-        tmbsiram.setText("jButton1");
         tmbsiram.setBorderPainted(false);
         tmbsiram.setContentAreaFilled(false);
-        getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 80));
+        getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 70));
 
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/jagung1.gif"))); // NOI18N
         getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 300, 400));
@@ -66,19 +71,17 @@ public class playjagung extends javax.swing.JFrame {
         boxhp.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
         boxhp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/health4.png"))); // NOI18N
         boxhp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, 40));
+        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 120, 40));
 
         tmbobat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
-        tmbobat1.setText("jButton1");
         tmbobat1.setBorderPainted(false);
         tmbobat1.setContentAreaFilled(false);
-        getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 80));
+        getContentPane().add(tmbobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 50, 80));
 
         tmbobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat2.png"))); // NOI18N
-        tmbobat2.setText("jButton2");
         tmbobat2.setBorderPainted(false);
         tmbobat2.setContentAreaFilled(false);
-        getContentPane().add(tmbobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, 80));
+        getContentPane().add(tmbobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 40, 80));
 
         tmbpupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk1.png"))); // NOI18N
         tmbpupuk.setText("jButton3");
@@ -103,6 +106,30 @@ public class playjagung extends javax.swing.JFrame {
         getContentPane().add(boxpopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 200, 260));
         getContentPane().add(boxpoupemot, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 250));
 
+        setuang.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        getContentPane().add(setuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 70, 40));
+
+        sisaair.setFont(new java.awt.Font("Geometr212 BkCn BT", 1, 12)); // NOI18N
+        sisaair.setText("a");
+        getContentPane().add(sisaair, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        sisaobat1.setFont(new java.awt.Font("Geometr212 BkCn BT", 1, 12)); // NOI18N
+        sisaobat1.setText("a");
+        getContentPane().add(sisaobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        sisaobat2.setFont(new java.awt.Font("Geometr212 BkCn BT", 1, 12)); // NOI18N
+        sisaobat2.setForeground(new java.awt.Color(255, 255, 255));
+        sisaobat2.setText("a");
+        getContentPane().add(sisaobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+
+        sisapupuk.setFont(new java.awt.Font("Geometr212 BkCn BT", 1, 12)); // NOI18N
+        sisapupuk.setForeground(new java.awt.Color(255, 255, 255));
+        sisapupuk.setText("a");
+        getContentPane().add(sisapupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+
+        tmbtoko.setText("TOKO");
+        getContentPane().add(tmbtoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -112,46 +139,51 @@ public class playjagung extends javax.swing.JFrame {
     public void map(ActionListener action) {
         map.addActionListener(action);
     }
-    
+
     public void kliksiram(ActionListener action) {
         tmbsiram.addActionListener(action);
     }
-    
+
     public void klikobat1(ActionListener action) {
         tmbobat1.addActionListener(action);
     }
-    
+
     public void klikobat2(ActionListener action) {
         tmbobat2.addActionListener(action);
     }
-    
+
     public void klikspupuk(ActionListener action) {
         tmbpupuk.addActionListener(action);
     }
-    
+
     public void kliktangan(ActionListener action) {
         tmbtangan.addActionListener(action);
     }
-    
+
     public void klikpanen(ActionListener action) {
         tmbpanen.addActionListener(action);
     }
-    
+
+    public void kliktoko(ActionListener action) {
+        tmbtoko.addActionListener(action);
+    }
+
     public void settanaman(String tanaman) {
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource(tanaman)));
     }
-    
+
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
+
     public void setboxpopup(String nama) {
         boxpopup.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
+
     public void setboxpopupemot(String nama) {
-        System.out.println("emot"+nama);
+        System.out.println("emot" + nama);
         boxpoupemot.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
-     
 
     public void setvisibleboxgerak(boolean bool) {
         boxgerak.setVisible(bool);
@@ -161,8 +193,28 @@ public class playjagung extends javax.swing.JFrame {
         boxumur.setText(nama);
     }
 
+    public void setscore(String nama) {
+        setuang.setText(nama);
+    }
+
     public void setboxhp(String nama) {
         boxhp.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+
+    public void setsisaair(String set) {
+        sisaair.setText(set);
+    }
+
+    public void setsisapupuk(String set) {
+        sisapupuk.setText(set);
+    }
+
+    public void setsisaobat1(String set) {
+        sisaobat1.setText(set);
+    }
+
+    public void setsisaobat2(String set) {
+        sisaobat2.setText(set);
     }
 
     /**
@@ -212,11 +264,17 @@ public class playjagung extends javax.swing.JFrame {
     private javax.swing.JLabel boxtanaman;
     private javax.swing.JLabel boxumur;
     private javax.swing.JToggleButton map;
+    private javax.swing.JLabel setuang;
+    private javax.swing.JLabel sisaair;
+    private javax.swing.JLabel sisaobat1;
+    private javax.swing.JLabel sisaobat2;
+    private javax.swing.JLabel sisapupuk;
     private javax.swing.JButton tmbobat1;
     private javax.swing.JButton tmbobat2;
     private javax.swing.JButton tmbpanen;
     private javax.swing.JButton tmbpupuk;
     private javax.swing.JButton tmbsiram;
     private javax.swing.JButton tmbtangan;
+    private javax.swing.JButton tmbtoko;
     // End of variables declaration//GEN-END:variables
 }
