@@ -14,20 +14,24 @@ import view.bantuan;
  * @author acer
  */
 public class c_bantuan {
+
     bantuan view;
-    public c_bantuan (bantuan view) {
-    this.view= view;
-    view.mainmenu(new klikmainmenu());
-    view.setVisible(true);
+    String username;
+
+    public c_bantuan(bantuan view,String username) {
+        this.view = view;
+        this.username=username;
+        view.mainmenu(new klikmainmenu());
+        view.setVisible(true);
     }
-    
+
     private class klikmainmenu implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu());
+            controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu(),username);
             view.dispose();
         }
-    
+
     }
 }

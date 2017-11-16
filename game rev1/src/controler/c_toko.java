@@ -26,11 +26,13 @@ public class c_toko {
     String obat1;
     String obat2;
     String air;
-    String username = "a";
+    String username = "";
 
-    public c_toko(toko view, modeltoko model) throws SQLException {
+    public c_toko(toko view, modeltoko model,String Username) throws SQLException {
         this.view = view;
         this.model = model;
+        this.username=Username;
+        System.out.println("username toko = "+this.username);
         view.klikbeliair(new klikbeliair());
         view.klikbelipupuk(new klikbelipupuk());
         view.klikbeliobat1(new klikbeliobat1());
@@ -41,15 +43,15 @@ public class c_toko {
     }
 
     public void getdatatoko() throws SQLException {
-        air = model.getair("a");
+        air = model.getair(username);
         System.out.println("air = " + air);
-        pupuk = model.getpupuk("a");
+        pupuk = model.getpupuk(username);
         System.out.println("pupuk = " + pupuk);
-        obat1 = model.getobat1("a");
+        obat1 = model.getobat1(username);
         System.out.println("obat1 = " + obat1);
-        obat2 = model.getobat2("a");
+        obat2 = model.getobat2(username);
         System.out.println("obat2 = " + obat2);
-        uang = model.getuang("a");
+        uang = model.getuang(username);
         System.out.println("uang = " + uang);
         setdatatoko();
     }

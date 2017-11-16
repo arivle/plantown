@@ -139,7 +139,7 @@ public class playtebu extends javax.swing.JFrame {
         boxumur.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
         getContentPane().add(boxumur, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 10, 80, 40));
 
-        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
+        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/backgroundtebu.png"))); // NOI18N
         jLabel.setText("jLabel1");
         getContentPane().add(jLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 

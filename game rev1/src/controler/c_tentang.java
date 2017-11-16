@@ -7,6 +7,9 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.tentang;
 
 /**
@@ -14,19 +17,23 @@ import view.tentang;
  * @author acer
  */
 public class c_tentang {
-   tentang view;
-    public c_tentang (tentang view) {
-    this.view= view;
-    view.mainmenu(new klikmainmenu());
-    view.setVisible(true);
+
+    tentang view;
+    String username;
+
+    public c_tentang(tentang view,String username) {
+        this.view = view;
+        this.username=username;
+        view.mainmenu(new klikmainmenu());
+        view.setVisible(true);
     }
-    
+
     private class klikmainmenu implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu());
+            controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu(),username);
             view.dispose();
-        }    
+        }
     }
 }

@@ -7,9 +7,8 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.user;
+import model.modeltoko;
 import view.isinama;
-import static view.isinama.namauser;
 import view.mainmenu;
 
 /**
@@ -20,27 +19,33 @@ public class c_isinama {
 
     isinama view;
     mainmenu view2;
-    user model;
-    controllihat controler;
-public static String namauser="tes";
-    public c_isinama(isinama view) {
+    modeltoko model;
+
+    public c_isinama(isinama view, modeltoko model) {
         this.view = view;
-        this.view.klikok(new klikmainmenu());
-        namauser = view.getnama();
-        this.view.setVisible(true);
-        
+        this.model=model;
+        view.klikok(new klikmainmenu());
+        view.setVisible(true);
+
     }
 
     private class klikmainmenu implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {            
-            controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu());
-            view.dispose();
+        public void actionPerformed(ActionEvent e) {
+            if (model.playerbaru(getusername()) == true) {
+                view.message("selamat datang " + getusername());
+                controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu(), view.getusername());
+                view.dispose();
+            } else {
+                view.message("username yang anda masukan sudah ada silahkan masukan username baru");
+            }
+
         }
     }
-    public String getusername (){
-        System.out.println(view.getnama());
-        return view.getnama();
+
+    public String getusername() {
+        System.out.println(view.getusername());
+        return view.getusername();
     }
 }

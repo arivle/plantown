@@ -28,7 +28,7 @@ public class c_playtebu extends datagame{
     playtebu view;
     c_play map;
     modeltoko model;
-    String username = "a";
+    String username = "";
     int detik;
     int getdetik = -1;
     int umurtebu = 0;
@@ -39,10 +39,11 @@ public class c_playtebu extends datagame{
     Timer mytimer = new Timer();
     Random rand = new Random();
 
-    public c_playtebu (playtebu view,modeltoko model) throws SQLException {
+    public c_playtebu (playtebu view,modeltoko model,String username) throws SQLException {
         System.out.println("masuk tebu");
  this.model = model;
         this.view = view;
+        this.username=username;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
@@ -305,7 +306,7 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko());
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(),username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -324,7 +325,7 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             view.setVisible(false);
             cek.cancel();
             task.cancel();
-            controler.c_play a = new controler.c_play(new play());
+            controler.c_play a = new controler.c_play(new play(),username);
             a.enablemap("jagung");
         }
     }

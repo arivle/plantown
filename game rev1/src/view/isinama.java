@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,14 +13,13 @@ import java.awt.event.ActionListener;
  * @author acer
  */
 public class isinama extends javax.swing.JFrame {
-
-    public static String namauser;
-
     public isinama() {
         initComponents();
         this.setLocationRelativeTo(this);
     }
-
+    public void message(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +32,6 @@ public class isinama extends javax.swing.JFrame {
         insertnama = new javax.swing.JTextField();
         okbutton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,19 +49,15 @@ public class isinama extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/viewisiNama.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 public void klikok(ActionListener action) {
-    namauser=insertnama.getText();
         okbutton.addActionListener(action);
-        
     }
-public String getnama (){
+
+    public String getusername() {
         return insertnama.getText();
-}
+    }
 
     /**
      * @param args the command line arguments
@@ -103,7 +98,6 @@ public String getnama (){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField insertnama;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton okbutton;
     // End of variables declaration//GEN-END:variables
 }

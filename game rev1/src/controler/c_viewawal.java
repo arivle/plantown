@@ -7,16 +7,17 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.viewawal;
 
 public class c_viewawal {
 
     viewawal view;
-    controllihat controler;
 
-    public c_viewawal(viewawal view, controllihat control) {
+    public c_viewawal(viewawal view) {
         this.view = view;
-        this.controler = control;
         this.view.klikplay(new play());
         this.view.setVisible(true);
     }
@@ -25,7 +26,11 @@ public class c_viewawal {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.isinama();
+            try {
+                controler.c_isinama a = new controler.c_isinama(new view.isinama(),new model.modeltoko());
+            } catch (SQLException ex) {
+                Logger.getLogger(c_viewawal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             view.dispose();
         }
 

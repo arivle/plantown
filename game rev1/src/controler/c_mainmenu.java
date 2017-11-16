@@ -7,6 +7,7 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.modeltoko;
 import model.user;
 import view.isinama;
 import view.mainmenu;
@@ -18,17 +19,17 @@ import view.mainmenu;
 public class c_mainmenu {
 
     mainmenu view;
-c_isinama controler;
-    user model;
-    
-    public c_mainmenu(mainmenu view) {
+    c_isinama controler;
+    String username;
+
+    public c_mainmenu(mainmenu view,String username) {
         this.view = view;
-        System.out.println(controler.namauser);
+        this.username = username;
         this.view.klikmain(new klikplay());
         this.view.klikbantuan(new klikbantuan());
         this.view.kliktentang(new kliktentang());
         this.view.klikexit(new klikexit());
-        view.setkotaknama(controler.namauser);
+        view.setkotaknama(this.username);
         this.view.setVisible(true);
     }
 
@@ -36,33 +37,27 @@ c_isinama controler;
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_play a = new controler.c_play(new view.play());
-            
-            
-            
+            controler.c_play a = new controler.c_play(new view.play(), username);
             view.dispose();
         }
-
     }
 
     private class klikbantuan implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_bantuan a = new controler.c_bantuan(new view.bantuan());
-             view.dispose();
+            controler.c_bantuan a = new controler.c_bantuan(new view.bantuan(), username);
+            view.dispose();
         }
-
     }
 
     private class kliktentang implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_tentang a = new controler.c_tentang(new view.tentang());
-             view.dispose();
+            controler.c_tentang a = new controler.c_tentang(new view.tentang(), username);
+            view.dispose();
         }
-
     }
 
     private class klikexit implements ActionListener {
@@ -73,39 +68,4 @@ c_isinama controler;
         }
 
     }
-//    public String getnama() {
-//        return user.getnama();
-//    }
-//
-//    public int getscorea() {
-//        return user.getscorea();
-//    }
-//
-//    public int getstatusjagung() {
-//        return user.getstatusjagung();
-//    }
-//
-//    public int gettebu() {
-//        return user.gettebu();
-//    }
-//
-//    public int gettembakau() {
-//        return user.gettembakau();
-//    }
-//
-//    public void setscore(int set) {
-//        user.setscore(set);
-//    }
-//
-//    public void setstatustebu(int set) {
-//        user.setstatustebu(set);
-//    }
-//
-//    public void settembakau(int set) {
-//        user.settembakau(set);
-//    }
-//
-//    public void setjagung(int set) {
-//        user.setjagung(set);
-//    }
 }
