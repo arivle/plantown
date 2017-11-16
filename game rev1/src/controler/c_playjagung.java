@@ -26,7 +26,7 @@ public class c_playjagung extends datagame {
     playjagung view;
     c_play map;
     modeltoko model;
-    String username = "a";
+    String username = "";
     int detik;
     int getdetik = -1;
     int umurjagung = 0;
@@ -37,10 +37,12 @@ public class c_playjagung extends datagame {
     Timer mytimer = new Timer();
     Random rand = new Random();
 
-    public c_playjagung(playjagung view, modeltoko model) throws SQLException {
+    public c_playjagung(playjagung view, modeltoko model, String username) throws SQLException {
         System.out.println("masuk jagung");
         this.model = model;
         this.view = view;
+        this.username = username;
+        System.out.println("username=" + username);
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
@@ -56,20 +58,23 @@ public class c_playjagung extends datagame {
     }
 
     public void start() {
+        mainMusik(musikmain);
         //sehari = 5 detik,perawatan = 15 detik
         mytimer.schedule(task, 1000, 1000);
         mytimer.schedule(cek, 1000, 1000);
     }
-public void stoptimer (boolean set) throws InterruptedException{
-    if (set) {
-        task.wait();
-        cek.wait();
+
+    public void stoptimer(boolean set) throws InterruptedException {
+        if (set) {
+            task.wait();
+            cek.wait();
+        }
+        if (!set) {
+            task.run();
+            cek.run();
+        }
     }
-    if (!set) {
-        task.run();
-        cek.run();
-    }
-}
+
     public void rawat(int rawat) {
         if (rawat == 1) {
             view.setboxpopup(popupobat1);
@@ -142,13 +147,15 @@ public void stoptimer (boolean set) throws InterruptedException{
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-public void setsisa() throws SQLException{
-view.setsisaair(model.getsisabarang(username, "air"));
-view.setsisapupuk(model.getsisabarang(username, "pupuk"));
-view.setsisaobat1(model.getsisabarang(username, "obat1"));
-view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
-}
+    public void setsisa() throws SQLException {
+        view.setsisaair(model.getsisabarang(username, "air"));
+        view.setsisapupuk(model.getsisabarang(username, "pupuk"));
+        view.setsisaobat1(model.getsisabarang(username, "obat1"));
+        view.setsisaobat2(model.getsisabarang(username, "obat2"));
+
+    }
+
     public void health() {
         switch (health) {
             case 4:
@@ -181,10 +188,10 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             setbox(siram);
             model.setair(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                setsisa();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (statuspopup.equals(siram)) {
                 view.setboxpopup("");
                 scorejagung += 2;
@@ -202,10 +209,10 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             setbox(pupuk);
             model.setpupuk(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                setsisa();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (statuspopup.equals(pupuk)) {
 
                 view.setboxpopup("");
@@ -225,10 +232,10 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             setbox(obat1);
             model.setobat1(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                setsisa();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (statuspopup.equals(obat1)) {
 
                 view.setboxpopup("");
@@ -249,10 +256,10 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             setbox(obat2);
             model.setobat2(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                setsisa();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (statuspopup.equals(obat2)) {
 
                 view.setboxpopup("");
@@ -294,17 +301,18 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
         }
 
     }
+
     private class kliktoko implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko());
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
+
     }
 
     public void showview() {
@@ -318,7 +326,7 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             view.setVisible(false);
             cek.cancel();
             task.cancel();
-            controler.c_play a = new controler.c_play(new play());
+            controler.c_play a = new controler.c_play(new play(), username);
             a.enablemap("jagung");
         }
     }

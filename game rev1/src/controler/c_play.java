@@ -23,9 +23,11 @@ public class c_play {
     c_playjagung jagung;
     c_playtebu tebu;
     c_playtembakau tembakau;
+    String username;
 
-    public c_play(play view) {
+    public c_play(play view,String  username) {
         this.view = view;
+        this.username=username;
         view.playjagung(new playjagung());
         view.playtebu(new playtebu());
         view.playtembakau(new playtembakau());
@@ -37,7 +39,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeltoko());
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeltoko(),username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -53,7 +55,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeltoko());
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeltoko(),username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -65,7 +67,11 @@ public class c_play {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau());
+            try {
+                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeltoko(),username);
+            } catch (SQLException ex) {
+                Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
+            }
             view.setVisible(false);
         }
     }

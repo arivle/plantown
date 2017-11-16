@@ -17,6 +17,11 @@ public class modeltoko extends koneksi {
         super();
     }
 
+    public boolean playerbaru(String username) {
+        String query = "INSERT INTO `user` (`nama`, `uang`, `pupuk`, `obat1`, `obat2`, `air`) VALUES ('"+username+"', '50', '5', '5', '5', '5');";
+        return execute(query);
+    }
+
     public String getair(String username) throws SQLException {
         String query = "SELECT `air` FROM `user` WHERE `nama` = '" + username + "' ";
         return getdata(query);
@@ -43,27 +48,32 @@ public class modeltoko extends koneksi {
     }
 
     public boolean setuang(String username, String kurang) {
-        String query = "UPDATE `user` SET `uang`= uang "+ kurang + " WHERE `nama` = '" + username + "'";
+        String query = "UPDATE `user` SET `uang`= uang " + kurang + " WHERE `nama` = '" + username + "'";
         return execute(query);
     }
+
     public boolean setpupuk(String username, String update) {
-        String query = "UPDATE `user` SET `pupuk`= pupuk "+ update + " WHERE `nama` = '" + username + "'";
+        String query = "UPDATE `user` SET `pupuk`= pupuk " + update + " WHERE `nama` = '" + username + "'";
         return execute(query);
     }
+
     public boolean setobat1(String username, String update) {
         String query = "UPDATE `user` SET `obat1`= obat1 " + update + " WHERE `nama` = '" + username + "'";
         return execute(query);
     }
+
     public boolean setobat2(String username, String update) {
-        String query = "UPDATE `user` SET `obat2`= obat2 "+update + " WHERE `nama` = '" + username + "'";
+        String query = "UPDATE `user` SET `obat2`= obat2 " + update + " WHERE `nama` = '" + username + "'";
         return execute(query);
     }
+
     public boolean setair(String username, String update) {
-        String query = "UPDATE `user` SET `air`= air "+ update + " WHERE `nama` = '" + username + "'";
+        String query = "UPDATE `user` SET `air`= air " + update + " WHERE `nama` = '" + username + "'";
         return execute(query);
     }
-    public String getsisabarang (String username,String data) throws SQLException{
-    String query= "select "+data+" from user where nama = '"+username+"'";
+
+    public String getsisabarang(String username, String data) throws SQLException {
+        String query = "select " + data + " from user where nama = '" + username + "'";
         return getdata(query);
     }
 }

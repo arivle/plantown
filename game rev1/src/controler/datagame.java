@@ -5,22 +5,32 @@
  */
 package controler;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
+
 /**
  *
  * @author acer
  */
 
 public class datagame {
+    private static AudioClip musik ;
     
     String tunasjagung = "/gambar/tunasjagung.gif";
     String jagung1 = "/gambar/jagung1.gif";
     String jagung2 = "/gambar/jagung2.gif";
-    String jagung3 = "/gambar/jagungsiappanen.gif";
+    String jagung3 = "/gambar/jagung3.gif";
     
     String tunastebu = "/gambar/tunasTebu.gif";
     String tebu1 = "/gambar/tebu1.gif";
     String tebu2 = "/gambar/tebu2.gif";
-    String tebu3 = "/gambar/tebusiappanen.gif";
+    String tebu3 = "/gambar/tebu3.gif";
+    
+    String tunastembakau = "/gambar/bako.gif";
+    String tembakau1 = "/gambar/tembakau1.gif";
+    String tembakau2 = "/gambar/tembakau2.gif";
+    String tembakau3 = "/gambar/tembakau3.gif";
     
     String siram = "/gambar/siram.gif";
     String obat1 = "/gambar/semprot.gif";
@@ -53,4 +63,17 @@ public class datagame {
     int jumlahpanentebu=0;
     int jumlahpanentembakau=0;
     
+    String musikmain = "main.wav";
+    
+    
+     public void mainMusik(String source){
+        URL url = this.getClass().getResource(musikmain) ;
+        musik = Applet.newAudioClip(url);
+        musik.play();
+    }
+    public void stopMusik(String source){
+        URL url = this.getClass().getResource(source) ;
+        musik = Applet.newAudioClip(url) ;
+        musik.stop();
+    }
 }
