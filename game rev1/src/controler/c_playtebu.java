@@ -18,12 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.modeltoko;
 import view.play;
+
 /**
  *
  * @author acer
  */
-public class c_playtebu extends datagame{
-
+public class c_playtebu extends datagame {
 
     playtebu view;
     c_play map;
@@ -39,11 +39,11 @@ public class c_playtebu extends datagame{
     Timer mytimer = new Timer();
     Random rand = new Random();
 
-    public c_playtebu (playtebu view,modeltoko model,String username) throws SQLException {
+    public c_playtebu(playtebu view, modeltoko model, String username) throws SQLException {
         System.out.println("masuk tebu");
- this.model = model;
+        this.model = model;
         this.view = view;
-        this.username=username;
+        this.username = username;
         view.map(new klikmap());
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
@@ -56,27 +56,29 @@ public class c_playtebu extends datagame{
         setsisa();
         view.setVisible(true);
     }
-public void playgame() {
+
+    public void playgame() {
         view.setVisible(true);
     }
 
     public void start() {
         //sehari = 5 detik,perawatan = 15 detik
-        mytimer.schedule(task, 1000, 5000);
+        mytimer.schedule(task, 1000, 1000);
         mytimer.schedule(cek, 1000, 1000);
     }
-    
-public void stoptimer (boolean set) throws InterruptedException{
-    if (set) {
-        task.wait();
-        cek.wait();
+
+    public void stoptimer(boolean set) throws InterruptedException {
+        if (set) {
+            task.wait();
+            cek.wait();
+        }
+        if (!set) {
+            task.run();
+            cek.run();
+        }
     }
-    if (!set) {
-        task.run();
-        cek.run();
-    }
-}
- public void rawat(int rawat) {
+
+    public void rawat(int rawat) {
         if (rawat == 1) {
             view.setboxpopup(popupobat1);
             statuspopup = obat1;
@@ -94,9 +96,11 @@ public void stoptimer (boolean set) throws InterruptedException{
             statuspopup = tangan;
         }
     }
-  public void popupemot(String emot) {
+
+    public void popupemot(String emot) {
         view.setboxpopupemot(emot);
-    }TimerTask task = new TimerTask() {
+    }
+    TimerTask task = new TimerTask() {
         @Override
         public void run() {
             view.setboxumur(umurtebu + " hari");
@@ -148,33 +152,40 @@ public void stoptimer (boolean set) throws InterruptedException{
     public void setbox(String set) {
         view.setboxgerak(set);
     }
-public void setsisa() throws SQLException{
-view.setsisaair(model.getsisabarang(username, "air"));
-view.setsisapupuk(model.getsisabarang(username, "pupuk"));
-view.setsisaobat1(model.getsisabarang(username, "obat1"));
-view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
-}
+    public void setsisa() throws SQLException {
+        view.setsisaair(model.getsisabarang(username, "air"));
+        view.setsisapupuk(model.getsisabarang(username, "pupuk"));
+        view.setsisaobat1(model.getsisabarang(username, "obat1"));
+        view.setsisaobat2(model.getsisabarang(username, "obat2"));
+    }
+
     public void health() {
         switch (health) {
             case 4:
-                view.setboxhp("/gambar/health3.png");
-                health--;
+                view.setboxhp("/gambar/health4.png");
                 popupemot(popupsakit);
                 break;
             case 3:
-                view.setboxhp("/gambar/health2.png");
+                view.setboxhp("/gambar/health3.png");
                 popupemot(popupsakit);
-                health--;
                 break;
             case 2:
+                view.setboxhp("/gambar/health2.png");
+                popupemot(popupsakit);
+                break;
+            case 1:
                 view.setboxhp("/gambar/health1.png");
                 popupemot(popupsakit);
-                health--;
                 break;
-            default:
+            case 0:
+                view.setboxhp("");
                 System.out.println("tanaman mati");
                 popupemot(popupsakit);
+                view.message("tanaman jagung mati");
+                cek.cancel();
+                task.cancel();
+                view.setboxgerak("");
                 break;
         }
     }
@@ -183,20 +194,20 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(siram);
-            model.setair(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+                loop = true;
+                setbox(siram);
+                model.setair(username, " - 1 ");
+                setsisa();
+                if (statuspopup.equals(siram)) {
+                    view.setboxpopup("");
+                    scoretebu += 2;
+                } else {
+                    health--;
+                    health();
                 }
-            if (statuspopup.equals(siram)) {
-                
-                view.setboxpopup("");
-                scoretebu += 2;
-            } else {
-                health();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -205,21 +216,21 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(pupuk);
-            model.setpupuk(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+                loop = true;
+                setbox(pupuk);
+                model.setpupuk(username, " - 1 ");
+                setsisa();
+                if (statuspopup.equals(pupuk)) {
+
+                    view.setboxpopup("");
+                    scoretebu += 2;
+                } else {
+                    health--;
+                    health();
                 }
-            if (statuspopup.equals(pupuk)) {
-
-                view.setboxpopup("");
-                scoretebu += 2;
-
-            } else {
-                health();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -228,22 +239,23 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(obat1);
-            model.setobat1(username, " - 1 ");
+
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+                loop = true;
+                setbox(obat1);
+                model.setobat1(username, " - 1 ");
+                setsisa();
+                if (statuspopup.equals(obat1)) {
+                    view.setboxpopup("");
+                    scoretebu += 2;
+                } else {
+                    health--;
+                    health();
                 }
-            if (statuspopup.equals(obat1)) {
-
-                view.setboxpopup("");
-                scoretebu += 2;
-
-            } else {
-                health();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }
@@ -252,21 +264,22 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(obat2);
-            model.setobat2(username, " - 1 ");
             try {
-                    setsisa();
-                } catch (SQLException ex) {
-                    Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+                loop = true;
+                setbox(obat2);
+                model.setobat2(username, " - 1 ");
+                setsisa();
+                if (statuspopup.equals(obat2)) {
+                    view.setboxpopup("");
+                    scoretebu += 2;
+                } else {
+                    health--;
+                    health();
                 }
-            if (statuspopup.equals(obat2)) {
-
-                view.setboxpopup("");
-                scoretebu += 2;
-            } else {
-                health();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }
@@ -281,6 +294,7 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
                 view.setboxpopup("");
                 scoretebu += 2;
             } else {
+                health--;
                 health();
             }
         }
@@ -296,22 +310,22 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
                 view.setboxpopup("");
                 scoretebu += 2;
             } else {
+                health=0;
                 health();
             }
         }
-
     }
+
     private class kliktoko implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(),username);
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
     }
 
     public void showview() {
@@ -325,10 +339,8 @@ view.setsisaobat2(model.getsisabarang(username, "obat2"));
             view.setVisible(false);
             cek.cancel();
             task.cancel();
-            controler.c_play a = new controler.c_play(new play(),username);
-            a.enablemap("jagung");
+            controler.c_play a = new controler.c_play(new play(), username);
+            a.enablemap("tebu");
         }
     }
-
 }
-

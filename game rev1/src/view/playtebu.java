@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +40,7 @@ public class playtebu extends javax.swing.JFrame {
         map = new javax.swing.JToggleButton();
         tmbsiram = new javax.swing.JButton();
         boxtanaman = new javax.swing.JLabel();
+        panen = new javax.swing.JLabel();
         boxgerak = new javax.swing.JLabel();
         boxhp = new javax.swing.JLabel();
         tmbobat1 = new javax.swing.JButton();
@@ -97,6 +99,9 @@ public class playtebu extends javax.swing.JFrame {
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tebu1.gif"))); // NOI18N
         getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 300, 400));
 
+        panen.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(panen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 330, 110));
+
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
         boxgerak.setText("boxgerak");
         getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 250, 200));
@@ -152,35 +157,35 @@ public class playtebu extends javax.swing.JFrame {
 public void map(ActionListener action) {
         map.addActionListener(action);
     }
-    
+
     public void kliksiram(ActionListener action) {
         tmbsiram.addActionListener(action);
     }
-    
+
     public void klikobat1(ActionListener action) {
         tmbobat1.addActionListener(action);
     }
-    
+
     public void klikobat2(ActionListener action) {
         tmbobat2.addActionListener(action);
     }
-    
+
     public void klikspupuk(ActionListener action) {
         tmbpupuk.addActionListener(action);
     }
-    
+
     public void klikgunting(ActionListener action) {
         tmbsiram.addActionListener(action);
     }
-    
+
     public void klikpanen(ActionListener action) {
         tmbpanen.addActionListener(action);
     }
-    
+
     public void settanaman(String tanaman) {
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource(tanaman)));
     }
-    
+
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
@@ -233,6 +238,15 @@ public void map(ActionListener action) {
     public void setsisaobat2(String set) {
         sisaobat2.setText(set);
     }
+
+    public void message(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+
+    public void setboxpanen(String nama) {
+        panen.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -279,6 +293,7 @@ public void map(ActionListener action) {
     private javax.swing.JLabel boxumur;
     private javax.swing.JLabel jLabel;
     private javax.swing.JToggleButton map;
+    private javax.swing.JLabel panen;
     private javax.swing.JLabel setuang;
     private javax.swing.JLabel sisaair;
     private javax.swing.JLabel sisaobat1;

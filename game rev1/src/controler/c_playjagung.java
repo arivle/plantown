@@ -54,7 +54,6 @@ public class c_playjagung extends datagame {
         start();
         setsisa();
         view.setVisible(true);
-
     }
 
     public void start() {
@@ -159,23 +158,19 @@ public class c_playjagung extends datagame {
         switch (health) {
             case 4:
                 view.setboxhp("/gambar/health4.png");
-//                health--;
                 popupemot(popupsakit);
                 break;
             case 3:
                 view.setboxhp("/gambar/health3.png");
                 popupemot(popupsakit);
-//                health--;
                 break;
             case 2:
                 view.setboxhp("/gambar/health2.png");
                 popupemot(popupsakit);
-//                health--;
                 break;
             case 1:
                 view.setboxhp("/gambar/health1.png");
                 popupemot(popupsakit);
-//                health--;
                 break;
             case 0:
                 view.setboxhp("");

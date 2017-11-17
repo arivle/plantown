@@ -1,0 +1,16 @@
+Tembakau : 5 detik = 1 hari
+Siap panen pada hari ke 70.
+Dipanen setiap 4 hari sekali, 
+Panen sampai hari ke 8
+Penyiraman setiap 3 hari sekali
+Pemupukan setiap 10 hari sekali
+Tanaman sakit setiap 12 hari sekali 
+
+
+Tebu : 5 detik = 5 hari
+Siap panen pada hari ke 240 hari
+Penyiraman pada 1 hari setelah tanam, pada hari ke 30 , pada hari ke 90, pada hari ke 150, 180, 210, 240
+Pemupukan 
+
+Jagung : 5 detik = 1 hari
+Siap panen pada hari ke 80
