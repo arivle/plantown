@@ -62,18 +62,4 @@ public class datagame {
     int jumlahpanenjagung=0;
     int jumlahpanentebu=0;
     int jumlahpanentembakau=0;
-    
-    String musikmain = "main.wav";
-    
-    
-     public void mainMusik(String source){
-        URL url = this.getClass().getResource(musikmain) ;
-        musik = Applet.newAudioClip(url);
-        musik.play();
-    }
-    public void stopMusik(String source){
-        URL url = this.getClass().getResource(source) ;
-        musik = Applet.newAudioClip(url) ;
-        musik.stop();
-    }
 }

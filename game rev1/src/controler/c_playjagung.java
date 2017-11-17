@@ -58,7 +58,7 @@ public class c_playjagung extends datagame {
     }
 
     public void start() {
-        mainMusik(musikmain);
+//        mainMusik(musikmain);
         //sehari = 5 detik,perawatan = 15 detik
         mytimer.schedule(task, 1000, 1000);
         mytimer.schedule(cek, 1000, 1000);
@@ -119,7 +119,6 @@ public class c_playjagung extends datagame {
             view.setscore("" + scorejagung);
             detik++;
             System.out.println("cek " + detik);
-
             if (loop) {
                 loop = false;
                 getdetik = detik + 2;
@@ -128,6 +127,7 @@ public class c_playjagung extends datagame {
             if (getdetik == detik) {
                 System.out.println("cek kondisi " + getdetik);
                 popupemot("");
+                view.setboxpanen("");
                 setbox(kosong);
             }
             //cek health
@@ -140,7 +140,6 @@ public class c_playjagung extends datagame {
             if (umurjagung == 25) {
                 view.settanaman(jagung1);
             }
-
         }
     };
 
@@ -159,23 +158,33 @@ public class c_playjagung extends datagame {
     public void health() {
         switch (health) {
             case 4:
-                view.setboxhp("/gambar/health3.png");
-                health--;
+                view.setboxhp("/gambar/health4.png");
+//                health--;
                 popupemot(popupsakit);
                 break;
             case 3:
-                view.setboxhp("/gambar/health2.png");
+                view.setboxhp("/gambar/health3.png");
                 popupemot(popupsakit);
-                health--;
+//                health--;
                 break;
             case 2:
+                view.setboxhp("/gambar/health2.png");
+                popupemot(popupsakit);
+//                health--;
+                break;
+            case 1:
                 view.setboxhp("/gambar/health1.png");
                 popupemot(popupsakit);
-                health--;
+//                health--;
                 break;
-            default:
+            case 0:
+                view.setboxhp("");
                 System.out.println("tanaman mati");
                 popupemot(popupsakit);
+                view.message("tanaman jagung mati");
+                cek.cancel();
+                task.cancel();
+                view.setboxgerak("");
                 break;
         }
     }
@@ -196,6 +205,7 @@ public class c_playjagung extends datagame {
                 view.setboxpopup("");
                 scorejagung += 2;
             } else {
+                health--;
                 health();
             }
         }
@@ -214,11 +224,10 @@ public class c_playjagung extends datagame {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (statuspopup.equals(pupuk)) {
-
                 view.setboxpopup("");
                 scorejagung += 2;
-
             } else {
+                health--;
                 health();
             }
         }
@@ -242,6 +251,7 @@ public class c_playjagung extends datagame {
                 scorejagung += 2;
 
             } else {
+                health--;
                 health();
             }
         }
@@ -252,21 +262,31 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(obat2);
-            model.setobat2(username, " - 1 ");
+
             try {
-                setsisa();
+
+                System.out.println("obay kuning = " + model.getobat2(username));
+                if (model.getobat2(username).equals("0")) {
+                    view.message("obat kuning anda habis silahkan beli ke toko");
+                } else {
+                    loop = true;
+                    setbox(obat2);
+                    model.setobat2(username, " - 1 ");
+                    setsisa();
+                    if (statuspopup.equals(obat2)) {
+
+                        view.setboxpopup("");
+                        scorejagung += 2;
+                    } else {
+                        health--;
+                        health();
+                    }
+                }
+
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (statuspopup.equals(obat2)) {
 
-                view.setboxpopup("");
-                scorejagung += 2;
-            } else {
-                health();
-            }
         }
 
     }
@@ -281,6 +301,7 @@ public class c_playjagung extends datagame {
                 view.setboxpopup("");
                 scorejagung += 2;
             } else {
+                health--;
                 health();
             }
         }
@@ -291,13 +312,16 @@ public class c_playjagung extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             loop = true;
-            setbox(panen);
+            view.setboxpanen(panen);
             if (statuspopup.equals(panen)) {
                 view.setboxpopup("");
                 scorejagung += 2;
             } else {
+                health = 0;
                 health();
+                view.message("tanaman di panen sebelum waktunya");
             }
+
         }
 
     }
