@@ -28,6 +28,8 @@ public class playjagung extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        percakapan = new javax.swing.JTextArea();
+        boxgambarpercakapan = new javax.swing.JLabel();
         map = new javax.swing.JToggleButton();
         tmbsiram = new javax.swing.JButton();
         boxtanaman = new javax.swing.JLabel();
@@ -48,12 +50,24 @@ public class playjagung extends javax.swing.JFrame {
         sisaobat2 = new javax.swing.JLabel();
         sisapupuk = new javax.swing.JLabel();
         tmbtoko = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        percakapan.setColumns(20);
+        percakapan.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        percakapan.setForeground(new java.awt.Color(255, 255, 255));
+        percakapan.setLineWrap(true);
+        percakapan.setRows(5);
+        percakapan.setWrapStyleWord(true);
+        percakapan.setOpaque(false);
+        getContentPane().add(percakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 510, 100));
+
+        boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
+        getContentPane().add(boxgambarpercakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 730, 290));
 
         map.setText("map");
         map.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,8 +150,13 @@ public class playjagung extends javax.swing.JFrame {
         tmbtoko.setText("TOKO");
         getContentPane().add(tmbtoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
@@ -145,6 +164,10 @@ public class playjagung extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+    }//GEN-LAST:event_jButton1ActionPerformed
     public void map(ActionListener action) {
         map.addActionListener(action);
     }
@@ -225,13 +248,30 @@ public class playjagung extends javax.swing.JFrame {
     public void setsisaobat2(String set) {
         sisaobat2.setText(set);
     }
- public void message(String message) {
+
+    public void message(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
- 
-public void setboxpanen(String nama) {
+
+    public void setboxpanen(String nama) {
         panen.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
+
+    public void setboxgambarpercakapan(String set) {
+        if (set.equals("boy")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/boy.png")));
+        }
+        if (set.equals("girl")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/boy.png")));
+        }
+        if (set.equals("")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("")));
+        }
+    }
+    public void setpercakapan(String set) {
+        percakapan.setText(set);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -272,15 +312,17 @@ public void setboxpanen(String nama) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JLabel boxgambarpercakapan;
     private javax.swing.JLabel boxgerak;
     private javax.swing.JLabel boxhp;
     private javax.swing.JLabel boxpopup;
     private javax.swing.JLabel boxpoupemot;
     private javax.swing.JLabel boxtanaman;
     private javax.swing.JLabel boxumur;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JToggleButton map;
     private javax.swing.JLabel panen;
+    private javax.swing.JTextArea percakapan;
     private javax.swing.JLabel setuang;
     private javax.swing.JLabel sisaair;
     private javax.swing.JLabel sisaobat1;

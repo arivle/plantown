@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeltoko;
+import model.modeluser;
 import view.play;
 
 /**
@@ -27,7 +27,7 @@ public class c_playtebu extends datagame {
 
     playtebu view;
     c_play map;
-    modeltoko model;
+    modeluser model;
     String username = "";
     int detik;
     int getdetik = -1;
@@ -39,7 +39,7 @@ public class c_playtebu extends datagame {
     Timer mytimer = new Timer();
     Random rand = new Random();
 
-    public c_playtebu(playtebu view, modeltoko model, String username) throws SQLException {
+    public c_playtebu(playtebu view, modeluser model, String username) throws SQLException {
         System.out.println("masuk tebu");
         this.model = model;
         this.view = view;
@@ -321,7 +321,7 @@ public class c_playtebu extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username);
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeluser(), username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -340,7 +340,20 @@ public class c_playtebu extends datagame {
             cek.cancel();
             task.cancel();
             controler.c_play a = new controler.c_play(new play(), username);
-            a.enablemap("tebu");
+            try {
+                model.setscorejagung(username, ""+scoretebu);
+                if (!model.getscorejagung(username).equals("0")) {
+                    a.enablemap("jagung");
+                }
+                if (!model.getscoretebu(username).equals("0")) {
+                     a.enablemap("jagung");
+                }
+                if (!model.getscoretembakau(username).equals("0")) {
+                     a.enablemap("tebu");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

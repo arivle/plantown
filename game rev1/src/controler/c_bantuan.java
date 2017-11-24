@@ -32,6 +32,5 @@ public class c_bantuan {
             controler.c_mainmenu a = new controler.c_mainmenu(new view.mainmenu(),username);
             view.dispose();
         }
-
     }
 }

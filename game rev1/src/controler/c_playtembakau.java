@@ -14,7 +14,7 @@ import view.playjagung;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeltoko;
+import model.modeluser;
 import view.play;
 import view.playtembakau;
 
@@ -26,7 +26,7 @@ public class c_playtembakau extends datagame {
 
     playtembakau view;
     c_play map;
-    modeltoko model;
+    modeluser model;
     String username = "";
     int detik;
     int getdetik = -1;
@@ -38,7 +38,7 @@ public class c_playtembakau extends datagame {
     Timer mytimer = new Timer();
     Random rand = new Random();
 
-    public c_playtembakau(playtembakau view, modeltoko model,String username) throws SQLException {
+    public c_playtembakau(playtembakau view, modeluser model,String username) throws SQLException {
         System.out.println("masuk jagung");
         this.model = model;
         this.view = view;
@@ -306,7 +306,7 @@ public class c_playtembakau extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(),username);
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeluser(),username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }

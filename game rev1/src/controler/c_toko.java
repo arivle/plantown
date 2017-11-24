@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeltoko;
+import model.modeluser;
 import view.toko;
 
 /**
@@ -20,7 +20,7 @@ import view.toko;
 public class c_toko {
 
     toko view;
-    modeltoko model;
+    modeluser model;
     String uang;
     String pupuk;
     String obat1;
@@ -28,7 +28,7 @@ public class c_toko {
     String air;
     String username = "";
 
-    public c_toko(toko view, modeltoko model,String Username) throws SQLException {
+    public c_toko(toko view, modeluser model,String Username) throws SQLException {
         this.view = view;
         this.model = model;
         this.username=Username;
