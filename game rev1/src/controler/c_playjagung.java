@@ -14,7 +14,7 @@ import view.playjagung;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeltoko;
+import model.modeluser;
 import view.play;
 
 /**
@@ -25,7 +25,7 @@ public class c_playjagung extends datagame {
 
     playjagung view;
     c_play map;
-    modeltoko model;
+    modeluser model;
     String username = "";
     int detik;
     int getdetik = -1;
@@ -36,8 +36,9 @@ public class c_playjagung extends datagame {
     boolean loop = false;
     Timer mytimer = new Timer();
     Random rand = new Random();
+    boolean stopgame = false;
 
-    public c_playjagung(playjagung view, modeltoko model, String username) throws SQLException {
+    public c_playjagung(playjagung view, modeluser model, String username) throws SQLException {
         System.out.println("masuk jagung");
         this.model = model;
         this.view = view;
@@ -59,37 +60,56 @@ public class c_playjagung extends datagame {
     public void start() {
 //        mainMusik(musikmain);
         //sehari = 5 detik,perawatan = 15 detik
-        mytimer.schedule(task, 1000, 1000);
-        mytimer.schedule(cek, 1000, 1000);
+        mytimer.schedule(task, 1000, 500);
+        mytimer.schedule(cek, 1000, 500);
     }
 
-    public void stoptimer(boolean set) throws InterruptedException {
-        if (set) {
-            task.wait();
-            cek.wait();
-        }
-        if (!set) {
-            task.run();
-            cek.run();
-        }
+    public void stoptimer(boolean set) {
+        stopgame = set;
+        view.setboxgambarpercakapan("");
+        view.setpercakapan("");
     }
 
     public void rawat(int rawat) {
         if (rawat == 1) {
             view.setboxpopup(popupobat1);
             statuspopup = obat1;
+            if (sudahobat1) {
+                sudahobat1 = false;
+                stoptimer(true);
+                view.setboxgambarpercakapan("boy");
+                view.setpercakapan(requestobat1);
+            }
         }
         if (rawat == 2) {
             view.setboxpopup(popupobat2);
             statuspopup = obat2;
+            if (sudahobat2) {
+                sudahobat2 = false;
+                stoptimer(true);
+                view.setboxgambarpercakapan("boy");
+                view.setpercakapan(requestobat2);
+            }
         }
         if (rawat == 3) {
             view.setboxpopup(Popuppupuk);
             statuspopup = pupuk;
+            if (sudahpupuk) {
+                sudahpupuk = false;
+                stoptimer(true);
+                view.setboxgambarpercakapan("boy");
+                view.setpercakapan(requestpupuk);
+            }
         }
         if (rawat == 4) {
             view.setboxpopup(popuprawat);
             statuspopup = tangan;
+            if (sudahtangan) {
+                sudahtangan = false;
+                stoptimer(true);
+                view.setboxgambarpercakapan("boy");
+                view.setpercakapan(requesttangan);
+            }
         }
     }
 
@@ -99,15 +119,24 @@ public class c_playjagung extends datagame {
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            view.setboxumur(umurjagung + " hari");
-            umurjagung++;
-            if (umurjagung % 10 == 0) {
-                view.setboxpopup(popupsiram);
-                statuspopup = siram;
-            }
-            if (umurjagung % 15 == 0) {
-                int randomrawat = rand.nextInt(4);
-                rawat(randomrawat + 1);
+            if (!stopgame) {
+                view.setboxumur(umurjagung + " hari");
+                umurjagung++;
+                if (umurjagung % 10 == 0 && umurjagung<85) {
+                    view.setboxpopup(popupsiram);
+                    statuspopup = siram;
+                    if (sudahsiram) {
+                        sudahsiram = false;
+                        stoptimer(true);
+                        view.setboxgambarpercakapan("boy");
+                        view.setpercakapan(requestair);
+
+                    }
+                }
+                if (umurjagung % 15 == 0 && umurjagung<85) {
+                    int randomrawat = rand.nextInt(4);
+                    rawat(randomrawat + 1);
+                }
             }
 
         }
@@ -115,30 +144,54 @@ public class c_playjagung extends datagame {
     TimerTask cek = new TimerTask() {
         @Override
         public void run() {
-            view.setscore("" + scorejagung);
-            detik++;
-            System.out.println("cek " + detik);
-            if (loop) {
-                loop = false;
-                getdetik = detik + 2;
-                System.out.println("get detik " + getdetik);
+            if (!stopgame) {
+                view.setscore("" + scorejagung);
+                detik++;
+                System.out.println("cek " + detik);
+                if (loop) {
+                    loop = false;
+                    getdetik = detik + 2;
+                    System.out.println("get detik " + getdetik);
+                }
+                if (getdetik == detik) {
+                    System.out.println("cek kondisi " + getdetik);
+                    popupemot("");
+                    view.setboxpanen("");
+                    setbox(kosong);
+                }
+                //
+
+                if (umurjagung == 25) {
+                    view.settanaman(jagung1);
+                }
+                if (umurjagung == 50) {
+                    view.settanaman(jagung2);
+                }
+                if (umurjagung==80) {
+                    view.settanaman(jagung3);
+                }
+                if (umurjagung == 89) {
+                    view.setboxpopup(panen);
+                    statuspopup = panen;
+                }
+                if (umurjagung > 90) {
+                    if (panenjagung == false) {
+                        view.setboxgambarpercakapan("boy");
+                        view.setpercakapan(requestpanen);
+                        view.message("tanamaan jagung siap panen");
+                        panenjagung = true;
+                    }
+
+                }
+                if (umurjagung > 100) {
+                    if (jagunghidup = true) {
+                        view.message("tanaman mati karena tidak dipanen");
+                        health=0;
+                        health();
+                    }
+                }
             }
-            if (getdetik == detik) {
-                System.out.println("cek kondisi " + getdetik);
-                popupemot("");
-                view.setboxpanen("");
-                setbox(kosong);
-            }
-            //cek health
-            if (umurjagung == 85) {
-                view.settanaman(jagung3);
-            }
-            if (umurjagung == 50) {
-                view.settanaman(jagung2);
-            }
-            if (umurjagung == 25) {
-                view.settanaman(jagung1);
-            }
+
         }
     };
 
@@ -188,20 +241,26 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(siram);
-            model.setair(username, " - 1 ");
             try {
-                setsisa();
+                System.out.println("sisa = " + model.getsisabarang(username, "air"));
+                if (model.getsisabarang(username, "air").equalsIgnoreCase("0")) {
+                    view.message("air anda habis silahkan beli air di toko");
+                } else {
+                    stoptimer(false);
+                    loop = true;
+                    setbox(siram);
+                    model.setair(username, " - 1 ");
+                    setsisa();
+                    if (statuspopup.equals(siram)) {
+                        view.setboxpopup("");
+                        scorejagung += 2;
+                    } else {
+                        health--;
+                        health();
+                    }
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (statuspopup.equals(siram)) {
-                view.setboxpopup("");
-                scorejagung += 2;
-            } else {
-                health--;
-                health();
             }
         }
     }
@@ -210,20 +269,25 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(pupuk);
-            model.setpupuk(username, " - 1 ");
             try {
-                setsisa();
+                if (model.getsisabarang(username, "pupuk").equalsIgnoreCase("0")) {
+                    view.message("pupuk anda habis silahkan beli ke toko");
+                } else {
+                    stoptimer(false);
+                    loop = true;
+                    setbox(pupuk);
+                    model.setpupuk(username, " - 1 ");
+                    setsisa();
+                    if (statuspopup.equals(pupuk)) {
+                        view.setboxpopup("");
+                        scorejagung += 2;
+                    } else {
+                        health--;
+                        health();
+                    }
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (statuspopup.equals(pupuk)) {
-                view.setboxpopup("");
-                scorejagung += 2;
-            } else {
-                health--;
-                health();
             }
         }
     }
@@ -232,38 +296,39 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            loop = true;
-            setbox(obat1);
-            model.setobat1(username, " - 1 ");
             try {
-                setsisa();
+                if (model.getsisabarang(username, "obat1").equalsIgnoreCase("0")) {
+                    view.message("obat biru anda habis silahkan beli ke toko");
+                } else {
+                    stoptimer(false);
+                    loop = true;
+                    setbox(obat1);
+                    model.setobat1(username, " - 1 ");
+                    setsisa();
+                    if (statuspopup.equals(obat1)) {
+                        view.setboxpopup("");
+                        scorejagung += 2;
+                    } else {
+                        health--;
+                        health();
+                    }
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (statuspopup.equals(obat1)) {
-
-                view.setboxpopup("");
-                scorejagung += 2;
-
-            } else {
-                health--;
-                health();
-            }
         }
-
     }
 
     private class klikobat2 implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
             try {
-
                 System.out.println("obay kuning = " + model.getobat2(username));
-                if (model.getobat2(username).equals("0")) {
+                if (model.getsisabarang(username, "obat2").equalsIgnoreCase("0")) {
                     view.message("obat kuning anda habis silahkan beli ke toko");
                 } else {
+                    stoptimer(false);
                     loop = true;
                     setbox(obat2);
                     model.setobat2(username, " - 1 ");
@@ -290,6 +355,7 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            stoptimer(false);
             loop = true;
             setbox(tangan);
             if (statuspopup.equals(tangan)) {
@@ -306,6 +372,7 @@ public class c_playjagung extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            stoptimer(false);
             loop = true;
             view.setboxpanen(panen);
             if (statuspopup.equals(panen)) {
@@ -316,9 +383,7 @@ public class c_playjagung extends datagame {
                 health();
                 view.message("tanaman di panen sebelum waktunya");
             }
-
         }
-
     }
 
     private class kliktoko implements ActionListener {
@@ -326,12 +391,11 @@ public class c_playjagung extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username);
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeluser(), username);
             } catch (SQLException ex) {
                 Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 
     public void showview() {
@@ -346,8 +410,20 @@ public class c_playjagung extends datagame {
             cek.cancel();
             task.cancel();
             controler.c_play a = new controler.c_play(new play(), username);
-            a.enablemap("jagung");
+            try {
+                model.setscorejagung(username, "" + scorejagung);
+                if (!model.getscorejagung(username).equals("0")) {
+                    a.enablemap("jagung");
+                }
+                if (!model.getscoretebu(username).equals("0")) {
+                    a.enablemap("jagung");
+                }
+                if (!model.getscoretembakau(username).equals("0")) {
+                    a.enablemap("tebu");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
-
 }

@@ -11,9 +11,9 @@ import java.sql.SQLException;
  *
  * @author acer
  */
-public class modeltoko extends koneksi {
+public class modeluser extends koneksi {
 
-    public modeltoko() throws SQLException {
+    public modeluser() throws SQLException {
         super();
     }
 
@@ -75,5 +75,33 @@ public class modeltoko extends koneksi {
     public String getsisabarang(String username, String data) throws SQLException {
         String query = "select " + data + " from user where nama = '" + username + "'";
         return getdata(query);
+    }
+    public String getscorejagung(String username) throws SQLException {
+        String query = "SELECT `scorejagung` FROM `user` WHERE `nama` ='"+username+"'";
+        return getdata(query);
+    }
+    public String getscoretebu(String username) throws SQLException {
+        String query = "SELECT `scoretebu` FROM `user` WHERE `nama` ='"+username+"'";
+        return getdata(query);
+    }
+    public String getscoretembakau(String username) throws SQLException {
+        String query = "SELECT `scoretembakau` FROM `user` WHERE `nama` ='"+username+"'";
+        return getdata(query);
+    }
+    public String getscoretotal(String username) throws SQLException {
+        String query = "SELECT `scoretotal` FROM `user` WHERE `nama` ='"+username+"'";
+        return getdata(query);
+    }
+    public boolean setscorejagung(String username, String update) {
+        String query = "UPDATE `user` SET `scorejagung`= " + update + " WHERE `nama` = '" + username + "'";
+        return execute(query);
+    }
+    public boolean setscoretebu(String username, String update) {
+        String query = "UPDATE `user` SET `scoretebu`= " + update + " WHERE `nama` = '" + username + "'";
+        return execute(query);
+    }
+    public boolean setscoretembakau(String username, String update) {
+        String query = "UPDATE `user` SET `scoretembakau`= " + update + " WHERE `nama` = '" + username + "'";
+        return execute(query);
     }
 }

@@ -7,7 +7,7 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.modeltoko;
+import model.modeluser;
 import model.user;
 import view.isinama;
 import view.mainmenu;

@@ -27,7 +27,7 @@ public class c_viewawal {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_isinama a = new controler.c_isinama(new view.isinama(),new model.modeltoko());
+                controler.c_isinama a = new controler.c_isinama(new view.isinama(),new model.modeluser());
             } catch (SQLException ex) {
                 Logger.getLogger(c_viewawal.class.getName()).log(Level.SEVERE, null, ex);
             }
