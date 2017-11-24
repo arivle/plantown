@@ -45,6 +45,8 @@ public class c_playjagung extends datagame {
         this.username = username;
         System.out.println("username=" + username);
         view.map(new klikmap());
+        start();
+        setsisa();
         view.kliksiram(new kliksiram());
         view.klikspupuk(new klikpupuk());
         view.klikobat1(new klikobat1());
@@ -52,8 +54,10 @@ public class c_playjagung extends datagame {
         view.kliktangan(new kliktangan());
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
-        start();
-        setsisa();
+        view.kliknext(new kliknext());
+        stoptimer(true);
+        view.setboxgambarpercakapan("boygirl");
+        view.setpercakapan(awalmain);
         view.setVisible(true);
     }
 
@@ -122,7 +126,7 @@ public class c_playjagung extends datagame {
             if (!stopgame) {
                 view.setboxumur(umurjagung + " hari");
                 umurjagung++;
-                if (umurjagung % 10 == 0 && umurjagung<85) {
+                if (umurjagung % 10 == 0 && umurjagung < 79) {
                     view.setboxpopup(popupsiram);
                     statuspopup = siram;
                     if (sudahsiram) {
@@ -133,7 +137,7 @@ public class c_playjagung extends datagame {
 
                     }
                 }
-                if (umurjagung % 15 == 0 && umurjagung<85) {
+                if (umurjagung % 15 == 0 && umurjagung < 79) {
                     int randomrawat = rand.nextInt(4);
                     rawat(randomrawat + 1);
                 }
@@ -159,34 +163,31 @@ public class c_playjagung extends datagame {
                     view.setboxpanen("");
                     setbox(kosong);
                 }
-                //
-
                 if (umurjagung == 25) {
                     view.settanaman(jagung1);
                 }
-                if (umurjagung == 50) {
+                if (umurjagung == 40) {
                     view.settanaman(jagung2);
                 }
-                if (umurjagung==80) {
+                if (umurjagung == 60) {
                     view.settanaman(jagung3);
                 }
-                if (umurjagung == 89) {
-                    view.setboxpopup(panen);
+                if (umurjagung == 75) {
+                    view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurjagung > 90) {
+                if (umurjagung > 80) {
                     if (panenjagung == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
                         view.message("tanamaan jagung siap panen");
                         panenjagung = true;
                     }
-
                 }
                 if (umurjagung > 100) {
-                    if (jagunghidup = true) {
+                    if (jagunghidup == true) {
                         view.message("tanaman mati karena tidak dipanen");
-                        health=0;
+                        health = 0;
                         health();
                     }
                 }
@@ -377,7 +378,9 @@ public class c_playjagung extends datagame {
             view.setboxpanen(panen);
             if (statuspopup.equals(panen)) {
                 view.setboxpopup("");
+                jagunghidup = false;
                 scorejagung += 2;
+                stoptimer(true);
             } else {
                 health = 0;
                 health();
@@ -400,6 +403,15 @@ public class c_playjagung extends datagame {
 
     public void showview() {
         view.setVisible(true);
+    }
+
+    private class kliknext implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            stoptimer(false);
+        }
+
     }
 
     private class klikmap implements ActionListener {

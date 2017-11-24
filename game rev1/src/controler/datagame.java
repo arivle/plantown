@@ -60,6 +60,7 @@ public class datagame {
     String popupobat1 = "/gambar/popupMintaObatCair.gif";
     String popupobat2 = "/gambar/popupMintaObatCair2.gif";
     String popuprawat = "/gambar/popupMintarawat.gif";
+    String popuppanen = "/gambar/popupmintapanen.gif";
 //popup emot
     String popupsedih = "/gambar/popupSedih.gif";
     String popupsenyum = "/gambar/popupSenyum.gif";
