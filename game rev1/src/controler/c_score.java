@@ -7,6 +7,7 @@ package controler;
 
 import java.sql.SQLException;
 import model.modeluser;
+import view.highscore;
 import view.scorepemain;
 
 /**
@@ -15,12 +16,13 @@ import view.scorepemain;
  */
 public class c_score {
 
-    scorepemain view;
+    highscore view;
     modeluser model;
-
-    public c_score(scorepemain view, modeluser model) throws SQLException {
+scorepemain viewscore;
+    public c_score(highscore view,scorepemain viewscore , modeluser model) throws SQLException {
         this.view = view;
         this.model = model;
+        this.
         view.setVisible(true);
         view.setTableModel(model.gethighscore());
     }

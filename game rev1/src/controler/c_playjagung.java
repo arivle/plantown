@@ -335,7 +335,6 @@ public class c_playjagung extends datagame {
                     model.setobat2(username, " - 1 ");
                     setsisa();
                     if (statuspopup.equals(obat2)) {
-
                         view.setboxpopup("");
                         scorejagung += 2;
                     } else {
@@ -422,6 +421,9 @@ public class c_playjagung extends datagame {
             cek.cancel();
             task.cancel();
             controler.c_play a = new controler.c_play(new play(), username);
+            System.out.println("user "+username);
+            System.out.println("score "+scorejagung);
+            model.setscorejagung(username, ""+scorejagung);
             try {
                 model.setscorejagung(username, "" + scorejagung);
                 if (!model.getscorejagung(username).equals("0")) {

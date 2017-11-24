@@ -34,21 +34,22 @@ public class c_play {
         view.setVisible(true);
     }
 
+    public void enablemap(String set) {
+        view.setdisable(set);
+    }
     private class playjagung implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
                 controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeluser(),username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
-    public void enablemap(String set) {
-        view.setdisable(set);
-    }
 
     private class playtebu implements ActionListener {
 
@@ -56,10 +57,10 @@ public class c_play {
         public void actionPerformed(ActionEvent e) {
             try {
                 controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeluser(),username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
-            view.setVisible(false);
         }
     }
 
@@ -69,10 +70,10 @@ public class c_play {
         public void actionPerformed(ActionEvent e) {
             try {
                 controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeluser(),username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
-            view.setVisible(false);
         }
     }
 }

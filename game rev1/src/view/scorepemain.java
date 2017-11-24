@@ -5,8 +5,6 @@
  */
 package view;
 
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author acer
@@ -18,11 +16,8 @@ public class scorepemain extends javax.swing.JFrame {
      */
     public scorepemain() {
         initComponents();
-        this.setLocationRelativeTo(this);
     }
-public void setTableModel(DefaultTableModel table) {
-        this.tabel.setModel(table);
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,47 +27,19 @@ public void setTableModel(DefaultTableModel table) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabel = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        score = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabel.setAutoCreateRowSorter(true);
-        tabel.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "NAMA", "SCORE"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+        score.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        score.setText("ef");
+        score.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(score, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 190, 80));
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabel.setOpaque(false);
-        tabel.setShowHorizontalLines(false);
-        tabel.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(tabel);
-        if (tabel.getColumnModel().getColumnCount() > 0) {
-            tabel.getColumnModel().getColumn(0).setResizable(false);
-            tabel.getColumnModel().getColumn(0).setPreferredWidth(160);
-            tabel.getColumnModel().getColumn(1).setPreferredWidth(160);
-        }
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 330, 450));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/viewhighscore.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/score.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,8 +80,7 @@ public void setTableModel(DefaultTableModel table) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabel;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel score;
     // End of variables declaration//GEN-END:variables
 }
