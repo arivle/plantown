@@ -1,0 +1,43 @@
+property (ukuran 80*80 px)
+a. tempat air
+b. karung pupuk
+c. obat 1
+d. obat 2
+e. sarung tangan
+f. clurit
+
+
+aset gerak (ukuran 250*200 px)
+a. tempat air saat siram
+b. pupuk saat dituang
+c. obat 1 saat di semprot
+d. obat 2 saat di tabur
+e. saring tangan gerak mutar
+f. clurit saat nebas
+g. tanaman level 1
+h. tanaman level 2
+i. tanaman level 3
+j. tanaman mati
+
+pop up (ukuran 80*80 px)
+a. butuh air
+b. butuh pupuk
+c. butuh obat 1
+d. butuh obat 2
+e. butuh perawatan
+f. siap panen
+g. senyum
+h. sedih
+i. sakit
+
+background (ukuran 800*600 px)
+a. insert username
+b. mainmenu
+c. map
+d. tebu
+e. jagung
+f. tembakau
+g. highscore
+
+
+
