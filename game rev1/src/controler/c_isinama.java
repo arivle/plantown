@@ -7,7 +7,7 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.modeluser;
+import model.modeltoko;
 import view.isinama;
 import view.mainmenu;
 
@@ -19,9 +19,9 @@ public class c_isinama {
 
     isinama view;
     mainmenu view2;
-    modeluser model;
+    modeltoko model;
 
-    public c_isinama(isinama view, modeluser model) {
+    public c_isinama(isinama view, modeltoko model) {
         this.view = view;
         this.model=model;
         view.klikok(new klikmainmenu());

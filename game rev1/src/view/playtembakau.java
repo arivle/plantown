@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,82 +21,117 @@ public class playtembakau extends javax.swing.JFrame {
 public void map(ActionListener action) {
         map.addActionListener(action);
     }
-
+    
     public void kliksiram(ActionListener action) {
         tmbsiram.addActionListener(action);
     }
-
+    
     public void klikobat1(ActionListener action) {
         tmbobat1.addActionListener(action);
     }
-
+    
     public void klikobat2(ActionListener action) {
         tmbobat2.addActionListener(action);
     }
-
+    
     public void klikspupuk(ActionListener action) {
         tmbpupuk.addActionListener(action);
     }
-
+    
     public void kliktangan(ActionListener action) {
         tmbtangan.addActionListener(action);
     }
-
+    
     public void klikpanen(ActionListener action) {
         tmbpanen.addActionListener(action);
     }
-
+    
     public void kliktoko(ActionListener action) {
         tmbtoko.addActionListener(action);
     }
-
+    
     public void settanaman(String tanaman) {
         boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource(tanaman)));
     }
-
+    
     public void setboxgerak(String nama) {
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
-
+    
     public void setboxpopup(String nama) {
         boxpopup.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
-
+    
     public void setboxpopupemot(String nama) {
         System.out.println("emot" + nama);
         boxpoupemot.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
-
+    
     public void setvisibleboxgerak(boolean bool) {
         boxgerak.setVisible(bool);
     }
-
+    
     public void setboxumur(String nama) {
         boxumur.setText(nama);
     }
-
+    
     public void setscore(String nama) {
         setuang.setText(nama);
     }
-
+    
     public void setboxhp(String nama) {
         boxhp.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
-
+    
     public void setsisaair(String set) {
         sisaair.setText(set);
     }
-
+    
     public void setsisapupuk(String set) {
         sisapupuk.setText(set);
     }
-
+    
     public void setsisaobat1(String set) {
         sisaobat1.setText(set);
     }
-
+    
     public void setsisaobat2(String set) {
         sisaobat2.setText(set);
+    }
+    
+    public void message(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+    
+    public void setboxpanen(String nama) {
+        panen.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
+    }
+    
+    public void setboxgambarpercakapan(String set) {
+        if (set.equals("boy")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/boy.png")));
+            next.setVisible(true);
+        }
+        if (set.equals("girl")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/boy.png")));
+            next.setVisible(true);
+        }
+        if (set.equals("boygirl")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/boygirl.png")));
+            next.setVisible(true);
+        }
+        if (set.equals("")) {
+            boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("")));
+            next.setVisible(false);
+        }
+    }
+
+    public void setpercakapan(String set) {
+        percakapan.setText(set);
+    }
+
+    public void kliknext(ActionListener action) {
+        next.addActionListener(action);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,7 +155,6 @@ public void map(ActionListener action) {
         boxumur = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
         tmbtangan = new javax.swing.JButton();
-        tmbpanen1 = new javax.swing.JButton();
         boxpopup = new javax.swing.JLabel();
         boxpoupemot = new javax.swing.JLabel();
         setuang = new javax.swing.JLabel();
@@ -128,6 +163,10 @@ public void map(ActionListener action) {
         sisaobat2 = new javax.swing.JLabel();
         sisapupuk = new javax.swing.JLabel();
         tmbtoko = new javax.swing.JButton();
+        boxgambarpercakapan = new javax.swing.JLabel();
+        next = new javax.swing.JButton();
+        percakapan = new javax.swing.JTextArea();
+        panen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -197,12 +236,6 @@ public void map(ActionListener action) {
         tmbtangan.setBorderPainted(false);
         tmbtangan.setContentAreaFilled(false);
         getContentPane().add(tmbtangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 80));
-
-        tmbpanen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cluritPKI.png"))); // NOI18N
-        tmbpanen1.setText("jButton5");
-        tmbpanen1.setBorderPainted(false);
-        tmbpanen1.setContentAreaFilled(false);
-        getContentPane().add(tmbpanen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 80, 80));
         getContentPane().add(boxpopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 200, 260));
         getContentPane().add(boxpoupemot, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 250));
 
@@ -229,6 +262,27 @@ public void map(ActionListener action) {
 
         tmbtoko.setText("TOKO");
         getContentPane().add(tmbtoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
+        boxgambarpercakapan.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(boxgambarpercakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 730, 290));
+
+        next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/next.png"))); // NOI18N
+        next.setBorder(null);
+        next.setContentAreaFilled(false);
+        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 80, 70));
+
+        percakapan.setColumns(20);
+        percakapan.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        percakapan.setForeground(new java.awt.Color(255, 255, 255));
+        percakapan.setLineWrap(true);
+        percakapan.setRows(5);
+        percakapan.setWrapStyleWord(true);
+        percakapan.setOpaque(false);
+        getContentPane().add(percakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 510, 100));
+
+        panen.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(panen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 330, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,6 +331,7 @@ public void map(ActionListener action) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JLabel boxgambarpercakapan;
     private javax.swing.JLabel boxgerak;
     private javax.swing.JLabel boxhp;
     private javax.swing.JLabel boxpopup;
@@ -284,6 +339,9 @@ public void map(ActionListener action) {
     private javax.swing.JLabel boxtanaman;
     private javax.swing.JLabel boxumur;
     private javax.swing.JToggleButton map;
+    private javax.swing.JButton next;
+    private javax.swing.JLabel panen;
+    private javax.swing.JTextArea percakapan;
     private javax.swing.JLabel setuang;
     private javax.swing.JLabel sisaair;
     private javax.swing.JLabel sisaobat1;
@@ -293,7 +351,6 @@ public void map(ActionListener action) {
     private javax.swing.JButton tmbobat1;
     private javax.swing.JButton tmbobat2;
     private javax.swing.JButton tmbpanen;
-    private javax.swing.JButton tmbpanen1;
     private javax.swing.JButton tmbpupuk;
     private javax.swing.JButton tmbsiram;
     private javax.swing.JButton tmbtangan;

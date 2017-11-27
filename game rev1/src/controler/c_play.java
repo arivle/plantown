@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeluser;
+import model.modeltoko;
 import view.play;
 
 /**
@@ -42,7 +42,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeluser(),username);
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeltoko(),username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +56,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeluser(),username);
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeltoko(),username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +69,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeluser(),username);
+                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeltoko(),username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);

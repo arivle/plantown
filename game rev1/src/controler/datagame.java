@@ -26,11 +26,17 @@ public class datagame {
     boolean sudahpanen = true;
     boolean sudahtangan = true;
     
-    boolean sudahjagung = true;
+    boolean sudahjagung = false;
+    boolean sudahtebu = false;
+    boolean sudahtembakau = false;
     
     boolean panenjagung = false;
+    boolean panentebu = false;
+    boolean panentembakau = false;
     
     boolean jagunghidup=true;
+    boolean tebuhidup=true;
+    boolean tembakauhidup=true;
 //jagung
     String tunasjagung = "/gambar/tunasjagung.gif";
     String jagung1 = "/gambar/jagung1.gif";
@@ -81,6 +87,8 @@ public class datagame {
     String requestpanen = "Yeayyyy, Selamat tanaman anda sudah siap untuk dipanen, Panen ia dengan (sabit) segera .. Terimakasih";
     String salahrequest = "yahhh , hati mu berkurang, jangan sampai salah merawat nanti tanamanmu bisa mati";
     String benarruequest = "Pintar sekali, tanaman terawat dengan baikk... lanjutkannn";
+    String keluarpaksa = "yah kok tanaman nya ditinggal jadi mati dong :``C";
+    String tanamanmati = "yah tanaman nya mati perhatikan apa kebutuhan tanaman nya";
     String Stockhabis = "wahhhh stok (.....) mu habis , pergilah ke (shop) untuk menambahnya dan kembalilah segera untuk merawart tanamanmu kembali.";
     String tutupjagung = "Terimakasih sudah membantu merawat tanaman jagung kami, lanjutkan untuk merawat tanaman tebu kami";
     String bukatebu = "Selamat datang di tanaman kami yang kedua. Terimakasih sudah merawat tanaman jagung kami. Anda sangat berbakat. Sekarang bisakah anda merawat tanaman tebu kami ? pasti bisa. Semangat !!";
@@ -89,11 +97,5 @@ public class datagame {
     String tutuptembakau = "Tanaman terakhir kami sudah berhasil anda rawat dengan baik.. Selamat anda sudah menyelesaikan 3 tanaman kami dan score anda (...) sangat baikk.... Terimakasih";
     String kembalikemap = "Permainan anda selesai, anda sangat pintar dalam merawat tanaman, Sekarang anda sudah bisa mencoba untuk merawat tanaman di rumah .... Terima kasih.";
 
-    int jumlahair = 0;
-    int jumlahpupuk = 0;
-    int jumlahobat1 = 0;
-    int jumlahobat2 = 0;
-    int jumlahpanenjagung = 0;
-    int jumlahpanentebu = 0;
-    int jumlahpanentembakau = 0;
+    boolean update=false;
 }

@@ -6,7 +6,7 @@
 package controler;
 
 import java.sql.SQLException;
-import model.modeluser;
+import model.modeltoko;
 import view.highscore;
 import view.scorepemain;
 
@@ -17,9 +17,9 @@ import view.scorepemain;
 public class c_score {
 
     highscore view;
-    modeluser model;
+    modeltoko model;
 scorepemain viewscore;
-    public c_score(highscore view,scorepemain viewscore , modeluser model) throws SQLException {
+    public c_score(highscore view,scorepemain viewscore , modeltoko model) throws SQLException {
         this.view = view;
         this.model = model;
         this.
