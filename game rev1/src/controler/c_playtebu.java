@@ -408,7 +408,7 @@ public class c_playtebu extends datagame {
             loop = true;
             view.setboxpanen(panen);
             if (statuspopup.equals(panen)) {
-                try {
+            try {
                     view.setboxpopup("");
                     tebuhidup = false;
                     scoretebu += 5;
