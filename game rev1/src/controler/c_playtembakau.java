@@ -39,6 +39,7 @@ public class c_playtembakau extends datagame {
     Random rand = new Random();
     boolean stopgame = false;
     boolean keluar = false;
+    int panenke = 0;
 
     public c_playtembakau(playtembakau view, modeltoko model, String username) throws SQLException {
         scoretembakau = Integer.valueOf(model.getuang(username));
@@ -47,7 +48,6 @@ public class c_playtembakau extends datagame {
         this.view = view;
         this.username = username;
         System.out.println("username=" + username);
-        view.map(new klikmap());
         start();
         setsisa();
         view.kliksiram(new kliksiram());
@@ -58,6 +58,7 @@ public class c_playtembakau extends datagame {
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
         view.kliknext(new kliknext());
+        view.klikmap(new klikmap());
         view.setVisible(true);
 
     }
@@ -148,24 +149,14 @@ public class c_playtembakau extends datagame {
                     rawat(randomrawat + 1);
                 }
                 if (keluar) {
-                    view.dispose();
-                    cek.cancel();
-                    task.cancel();
-                    controler.c_play a = new controler.c_play(new play(), username);
-                    System.out.println("user " + username);
-                    System.out.println("score " + scoretembakau);
-                    model.setscoretembakau(username, "" + scoretembakau);
                     try {
+                        view.dispose();
+                        cek.cancel();
+                        task.cancel();
+                        System.out.println("user " + username);
+                        System.out.println("score " + scoretembakau);
                         model.setscoretembakau(username, "" + scoretembakau);
-                        if (!model.getscoretembakau(username).equals("0")) {
-                            a.enablemap("tembakau");
-                        }
-                        if (!model.getscoretembakau(username).equals("0")) {
-                            a.enablemap("tembakau");
-                        }
-                        if (!model.getscoretembakau(username).equals("0")) {
-                            a.enablemap("tembakau");
-                        }
+                        controler.c_scorepemain b = new controler.c_scorepemain(new view.scorepemain(), model.getscoretotal(username), username);
                     } catch (SQLException ex) {
                         Logger.getLogger(c_playtembakau.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -192,24 +183,24 @@ public class c_playtembakau extends datagame {
                     view.setboxpanen("");
                     setbox(kosong);
                 }
-                if (umurtembakau == 25) {
+                if (umurtembakau == 2) {
                     view.settanaman(tembakau1);
                     scoretembakau += 20;
 
                 }
-                if (umurtembakau == 50) {
+                if (umurtembakau == 40) {
                     view.settanaman(tembakau2);
                     scoretembakau += 20;
                 }
-                if (umurtembakau == 75) {
+                if (umurtembakau == 70) {
                     view.settanaman(tembakau3);
                     scoretembakau += 20;
                 }
-                if (umurtembakau == 84) {
+                if (umurtembakau == 71 || umurtembakau == 75 || umurtembakau == 79) {
                     view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurtembakau > 85) {
+                if (umurtembakau > 71) {
                     if (panentembakau == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
@@ -409,11 +400,14 @@ public class c_playtembakau extends datagame {
             if (statuspopup.equals(panen)) {
                 try {
                     view.setboxpopup("");
-                    tembakauhidup = false;
                     scoretembakau += 5;
-                    stoptimer(true);
-                    sudahtembakau = true;
-                    controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "tembakau");
+                    if (panenke >= 3) {
+                        tembakauhidup = false;
+                        stoptimer(true);
+                        sudahtembakau = true;
+                        controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "tembakau");
+                    }
+                    panenke++;
                 } catch (SQLException ex) {
                     Logger.getLogger(c_playtembakau.class.getName()).log(Level.SEVERE, null, ex);
                 }

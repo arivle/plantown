@@ -48,7 +48,7 @@ public class c_playtebu extends datagame {
         this.view = view;
         this.username = username;
         System.out.println("username=" + username);
-        view.map(new klikmap());
+        
         start();
         setsisa();
         view.kliksiram(new kliksiram());
@@ -59,6 +59,7 @@ public class c_playtebu extends datagame {
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
         view.kliknext(new kliknext());
+        view.map(new klikmap());
         view.setVisible(true);
     }
 
@@ -154,21 +155,9 @@ public class c_playtebu extends datagame {
                     controler.c_play a = new controler.c_play(new play(), username);
                     System.out.println("user " + username);
                     System.out.println("score " + scoretebu);
-                    model.setscoretebu(username, "" + scoretebu);
-                    try {
-                        model.setscoretebu(username, "" + scoretebu);
-                        if (!model.getscoretebu(username).equals("0")) {
-                            a.enablemap("tebu");
-                        }
-                        if (!model.getscoretebu(username).equals("0")) {
-                            a.enablemap("tebu");
-                        }
-                        if (!model.getscoretembakau(username).equals("0")) {
-                            a.enablemap("tebu");
-                        }
-                    } catch (SQLException ex) {
-                        Logger.getLogger(c_playtebu.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    model.setscorejagung(username, "" + scoretebu);
+                    model.setscorejagung(username, "" + scoretebu);
+                    a.enablemap("tembakau",true);
                 }
             }
 
@@ -192,24 +181,24 @@ public class c_playtebu extends datagame {
                     view.setboxpanen("");
                     setbox(kosong);
                 }
-                if (umurtebu == 25) {
+                if (umurtebu == 60) {
                     view.settanaman(tebu1);
                     scoretebu += 20;
 
                 }
-                if (umurtebu == 50) {
+                if (umurtebu == 120) {
                     view.settanaman(tebu2);
                     scoretebu += 20;
                 }
-                if (umurtebu == 75) {
+                if (umurtebu == 180) {
                     view.settanaman(tebu3);
                     scoretebu += 20;
                 }
-                if (umurtebu == 84) {
+                if (umurtebu == 239) {
                     view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurtebu > 85) {
+                if (umurtebu > 240) {
                     if (panentebu == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
@@ -217,7 +206,7 @@ public class c_playtebu extends datagame {
                         panentebu = true;
                     }
                 }
-                if (umurtebu > 100) {
+                if (umurtebu > 2600) {
                     if (tebuhidup == true) {
                         view.message("tanaman mati karena tidak dipanen");
                         health = 0;

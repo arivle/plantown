@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author acer
@@ -16,6 +18,23 @@ public class scorepemain extends javax.swing.JFrame {
      */
     public scorepemain() {
         initComponents();
+        this.setLocationRelativeTo(this);
+    }
+
+    public void setnama(String namanya) {
+        nama.setText(namanya);
+    }
+
+    public void setscore(String scorenya) {
+        nama.setText(scorenya);
+    }
+
+    public void klikback(ActionListener action) {
+        back.addActionListener(action);
+    }
+
+    public void klikhighscore(ActionListener action) {
+        highscore.addActionListener(action);
     }
 
     /**
@@ -28,6 +47,10 @@ public class scorepemain extends javax.swing.JFrame {
     private void initComponents() {
 
         score = new javax.swing.JLabel();
+        nama = new javax.swing.JLabel();
+        back = new javax.swing.JButton();
+        highscore = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,7 +59,21 @@ public class scorepemain extends javax.swing.JFrame {
         score.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         score.setText("ef");
         score.setBorder(new javax.swing.border.MatteBorder(null));
-        getContentPane().add(score, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 190, 80));
+        getContentPane().add(score, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 190, 80));
+
+        nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        nama.setText("nama");
+        nama.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 190, 80));
+
+        back.setText("back");
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 90, 50));
+
+        highscore.setText("highscore");
+        getContentPane().add(highscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 120, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/papanSkor.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 720, 470));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/score.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
@@ -80,7 +117,11 @@ public class scorepemain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
     private javax.swing.JLabel background;
+    private javax.swing.JButton highscore;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel nama;
     private javax.swing.JLabel score;
     // End of variables declaration//GEN-END:variables
 }

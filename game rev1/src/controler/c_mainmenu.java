@@ -35,6 +35,7 @@ public class c_mainmenu {
         @Override
         public void actionPerformed(ActionEvent e) {
             controler.c_play a = new controler.c_play(new view.play(), username);
+            a.enablemap("jagung", true);
             view.dispose();
         }
     }

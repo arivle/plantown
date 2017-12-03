@@ -66,7 +66,7 @@ public class mainmenu extends javax.swing.JFrame {
         kotaknama.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         kotaknama.setForeground(new java.awt.Color(102, 255, 51));
         kotaknama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kotaknama.setText("jLabel2");
+        kotaknama.setText("nama");
         getContentPane().add(kotaknama, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/box nama_burned.png"))); // NOI18N

@@ -32,7 +32,6 @@ public class playjagung extends javax.swing.JFrame {
         next = new javax.swing.JButton();
         percakapan = new javax.swing.JTextArea();
         boxgambarpercakapan = new javax.swing.JLabel();
-        map = new javax.swing.JToggleButton();
         tmbsiram = new javax.swing.JButton();
         boxtanaman = new javax.swing.JLabel();
         panen = new javax.swing.JLabel();
@@ -52,7 +51,7 @@ public class playjagung extends javax.swing.JFrame {
         sisaobat2 = new javax.swing.JLabel();
         sisapupuk = new javax.swing.JLabel();
         tmbtoko = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        map = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,10 +75,6 @@ public class playjagung extends javax.swing.JFrame {
         boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
         boxgambarpercakapan.setBorder(new javax.swing.border.MatteBorder(null));
         getContentPane().add(boxgambarpercakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 730, 290));
-
-        map.setText("map");
-        map.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(map, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 81, -1));
 
         tmbsiram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
         tmbsiram.setBorderPainted(false);
@@ -158,13 +153,8 @@ public class playjagung extends javax.swing.JFrame {
         tmbtoko.setText("TOKO");
         getContentPane().add(tmbtoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
+        map.setText("map");
+        getContentPane().add(map, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/background jagung.png"))); // NOI18N
         background.setText("jLabel1");
@@ -172,10 +162,6 @@ public class playjagung extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
     public void map(ActionListener action) {
         map.addActionListener(action);
     }
@@ -221,7 +207,6 @@ public class playjagung extends javax.swing.JFrame {
     }
     
     public void setboxpopupemot(String nama) {
-        System.out.println("emot" + nama);
         boxpoupemot.setIcon(new javax.swing.ImageIcon(getClass().getResource(nama)));
     }
     
@@ -338,8 +323,7 @@ public class playjagung extends javax.swing.JFrame {
     private javax.swing.JLabel boxpoupemot;
     private javax.swing.JLabel boxtanaman;
     private javax.swing.JLabel boxumur;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JToggleButton map;
+    private javax.swing.JButton map;
     private javax.swing.JButton next;
     private javax.swing.JLabel panen;
     private javax.swing.JTextArea percakapan;

@@ -156,20 +156,8 @@ public class c_playjagung extends datagame {
                     System.out.println("user " + username);
                     System.out.println("score " + scorejagung);
                     model.setscorejagung(username, "" + scorejagung);
-                    try {
-                        model.setscorejagung(username, "" + scorejagung);
-                        if (!model.getscorejagung(username).equals("0")) {
-                            a.enablemap("jagung");
-                        }
-                        if (!model.getscoretebu(username).equals("0")) {
-                            a.enablemap("jagung");
-                        }
-                        if (!model.getscoretembakau(username).equals("0")) {
-                            a.enablemap("tebu");
-                        }
-                    } catch (SQLException ex) {
-                        Logger.getLogger(c_playjagung.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    model.setscorejagung(username, "" + scorejagung);
+                    a.enablemap("tebu",true);
                 }
             }
 
@@ -461,11 +449,10 @@ public class c_playjagung extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             stoptimer(true);
-            if (!sudahjagung) {
                 view.setboxgambarpercakapan("boygirl");
             view.setpercakapan(keluarpaksa);
             keluar = true;
-            }
+            
             
         }
     }

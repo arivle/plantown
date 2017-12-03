@@ -25,24 +25,25 @@ public class c_play {
     c_playtembakau tembakau;
     String username;
 
-    public c_play(play view,String  username) {
+    public c_play(play view, String username) {
         this.view = view;
-        this.username=username;
+        this.username = username;
         view.playjagung(new playjagung());
         view.playtebu(new playtebu());
         view.playtembakau(new playtembakau());
         view.setVisible(true);
     }
 
-    public void enablemap(String set) {
-        view.setdisable(set);
+    public void enablemap(String set, boolean bool) {
+        view.setdisable(set, bool);
     }
+
     private class playjagung implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeltoko(),username);
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(), new model.modeltoko(), username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,13 +51,12 @@ public class c_play {
         }
     }
 
-
     private class playtebu implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeltoko(),username);
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(), new model.modeltoko(), username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +69,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeltoko(),username);
+                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(), new model.modeltoko(), username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);

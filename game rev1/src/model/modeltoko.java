@@ -97,7 +97,7 @@ public class modeltoko extends koneksi {
     }
 
     public String getscoretotal(String username) throws SQLException {
-        String query = "SELECT `scoretotal` FROM `user` WHERE `nama` ='" + username + "'";
+        String query = "SELECT `uang` FROM `user` WHERE `nama` ='" + username + "'";
         return getdata(query);
     }
 
