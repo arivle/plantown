@@ -35,34 +35,22 @@ public class bantuan extends javax.swing.JFrame {
     private void initComponents() {
 
         tmbmainmenu = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        tex = new javax.swing.JTextArea();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tmbmainmenu.setText("main menu");
+        getContentPane().add(tmbmainmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 566, -1, -1));
 
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tmbmainmenu)
-                .addContainerGap(707, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 552, Short.MAX_VALUE)
-                .addComponent(tmbmainmenu)
-                .addContainerGap())
-        );
+        tex.setEditable(false);
+        tex.setColumns(20);
+        tex.setLineWrap(true);
+        tex.setRows(5);
+        tex.setText("Game Plantoon ini terdiri dari 3 level :\n1. Jagung\n2. Tebu\n3. Tembakau\nRawatlah ke tiga tanaman dengan memberi air, pupuk, obat 1 & 2, perawatan,\nhingga nanti tanaman bisa di panen. Kumpulkan coin sebanyak-banyaknya dengan\nmemenuhi request secepat mungkin dan menjaga tanaman agar tetap hidup");
+        getContentPane().add(tex, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 620, -1));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,7 +92,8 @@ public class bantuan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel background;
+    private javax.swing.JTextArea tex;
     private javax.swing.JButton tmbmainmenu;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@ import com.mysql.jdbc.Statement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 public class koneksi {
 
@@ -53,5 +54,17 @@ public class koneksi {
         }
         System.out.println("get = "+data);
         return data;
+    }
+    public DefaultTableModel getDatatotal(String query, String kolom[]) throws SQLException {
+        DefaultTableModel table = new DefaultTableModel(null, kolom);
+        ResultSet rs = getResult(query);
+        while (rs.next()) {
+            String row[] = new String[kolom.length];
+            for (int i = 0; i < row.length; i++) {
+                row[i] = rs.getString(i + 1);
+            }
+            table.addRow(row);
+        }
+        return table;
     }
 }

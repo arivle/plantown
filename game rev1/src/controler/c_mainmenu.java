@@ -7,9 +7,6 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.modeluser;
-import model.user;
-import view.isinama;
 import view.mainmenu;
 
 /**
@@ -38,6 +35,7 @@ public class c_mainmenu {
         @Override
         public void actionPerformed(ActionEvent e) {
             controler.c_play a = new controler.c_play(new view.play(), username);
+            a.enablemap("jagung", true);
             view.dispose();
         }
     }

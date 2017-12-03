@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.modeluser;
+import model.modeltoko;
 import view.play;
 
 /**
@@ -25,13 +25,17 @@ public class c_play {
     c_playtembakau tembakau;
     String username;
 
-    public c_play(play view,String  username) {
+    public c_play(play view, String username) {
         this.view = view;
-        this.username=username;
+        this.username = username;
         view.playjagung(new playjagung());
         view.playtebu(new playtebu());
         view.playtembakau(new playtembakau());
         view.setVisible(true);
+    }
+
+    public void enablemap(String set, boolean bool) {
+        view.setdisable(set, bool);
     }
 
     private class playjagung implements ActionListener {
@@ -39,15 +43,12 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(),new model.modeluser(),username);
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(), new model.modeltoko(), username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public void enablemap(String set) {
-        view.setdisable(set);
     }
 
     private class playtebu implements ActionListener {
@@ -55,11 +56,11 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(),new model.modeluser(),username);
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(), new model.modeltoko(), username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
-            view.setVisible(false);
         }
     }
 
@@ -68,11 +69,11 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(),new model.modeluser(),username);
+                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(), new model.modeltoko(), username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
             }
-            view.setVisible(false);
         }
     }
 }

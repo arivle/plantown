@@ -39,14 +39,28 @@ public class play extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tmbtebu.setText("tebu");
-        getContentPane().add(tmbtebu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        tmbtebu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/maptebu.png"))); // NOI18N
+        tmbtebu.setBorderPainted(false);
+        tmbtebu.setContentAreaFilled(false);
+        tmbtebu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tmbtebu.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        tmbtebu.setEnabled(false);
+        getContentPane().add(tmbtebu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
 
-        tmbjagung.setText("jagung");
-        getContentPane().add(tmbjagung, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+        tmbjagung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/mapjagung.png"))); // NOI18N
+        tmbjagung.setBorder(null);
+        tmbjagung.setBorderPainted(false);
+        tmbjagung.setContentAreaFilled(false);
+        tmbjagung.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tmbjagung.setEnabled(false);
+        getContentPane().add(tmbjagung, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 90, 80));
 
-        tmbtembakau.setText("tembakau");
-        getContentPane().add(tmbtembakau, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
+        tmbtembakau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/maptembakau.png"))); // NOI18N
+        tmbtembakau.setBorderPainted(false);
+        tmbtembakau.setContentAreaFilled(false);
+        tmbtembakau.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tmbtembakau.setEnabled(false);
+        getContentPane().add(tmbtembakau, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/map.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -66,15 +80,15 @@ public void playtebu(ActionListener action) {
         tmbtembakau.addActionListener(action);
     }
 
-    public void setdisable(String set) {
+    public void setdisable(String set,boolean bool) {
         if (set.equals("jagung")) {
-            tmbjagung.setEnabled(false);
+            tmbjagung.setEnabled(bool);
         }
         if (set.equals("tembakau")) {
-            tmbtembakau.setEnabled(false);
+            tmbtembakau.setEnabled(bool);
         }
         if (set.equals("tebu")) {
-            tmbtebu.setEnabled(false);
+            tmbtebu.setEnabled(bool);
         }
     }
 
