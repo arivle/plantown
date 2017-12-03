@@ -26,10 +26,6 @@ public class datagame {
     boolean sudahpanen = true;
     boolean sudahtangan = true;
     
-    boolean sudahjagung = false;
-    boolean sudahtebu = false;
-    boolean sudahtembakau = false;
-    
     boolean panenjagung = false;
     boolean panentebu = false;
     boolean panentembakau = false;

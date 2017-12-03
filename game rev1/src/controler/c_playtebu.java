@@ -7,8 +7,6 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
 import view.playtebu;
 import java.sql.SQLException;
 import java.util.Random;
@@ -33,7 +31,7 @@ public class c_playtebu extends datagame {
     int getdetik = -1;
     int umurtebu = 0;
     int health = 4;
-    int scoretebu = 0;
+    static int scoretebu = 0;
     String statuspopup = "";
     boolean loop = false;
     Timer mytimer = new Timer();
@@ -41,14 +39,13 @@ public class c_playtebu extends datagame {
     boolean stopgame = false;
     boolean keluar = false;
 
-    public c_playtebu(playtebu view, modeltoko model, String username) throws SQLException {
-        scoretebu = Integer.valueOf(model.getuang(username));
+    public c_playtebu(playtebu view, modeltoko model, String username, String score) throws SQLException {
         System.out.println("masuk tebu");
         this.model = model;
         this.view = view;
         this.username = username;
+        this.scoretebu = Integer.parseInt(score);
         System.out.println("username=" + username);
-        
         start();
         setsisa();
         view.kliksiram(new kliksiram());
@@ -59,7 +56,10 @@ public class c_playtebu extends datagame {
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
         view.kliknext(new kliknext());
-        view.map(new klikmap());
+         view.map(new klikmap());
+        stoptimer(true);
+        view.setboxgambarpercakapan("boygirl");
+        view.setpercakapan(bukatebu);
         view.setVisible(true);
     }
 
@@ -80,42 +80,22 @@ public class c_playtebu extends datagame {
         if (rawat == 1) {
             view.setboxpopup(popupobat1);
             statuspopup = obat1;
-            if (sudahobat1) {
-                sudahobat1 = false;
-                stoptimer(true);
-                view.setboxgambarpercakapan("boy");
-                view.setpercakapan(requestobat1);
-            }
+
         }
         if (rawat == 2) {
             view.setboxpopup(popupobat2);
             statuspopup = obat2;
-            if (sudahobat2) {
-                sudahobat2 = false;
-                stoptimer(true);
-                view.setboxgambarpercakapan("boy");
-                view.setpercakapan(requestobat2);
-            }
+
         }
         if (rawat == 3) {
             view.setboxpopup(Popuppupuk);
             statuspopup = pupuk;
-            if (sudahpupuk) {
-                sudahpupuk = false;
-                stoptimer(true);
-                view.setboxgambarpercakapan("boy");
-                view.setpercakapan(requestpupuk);
-            }
+
         }
         if (rawat == 4) {
             view.setboxpopup(popuprawat);
             statuspopup = tangan;
-            if (sudahtangan) {
-                sudahtangan = false;
-                stoptimer(true);
-                view.setboxgambarpercakapan("boy");
-                view.setpercakapan(requesttangan);
-            }
+
         }
     }
 
@@ -128,23 +108,11 @@ public class c_playtebu extends datagame {
             if (!stopgame) {
                 view.setboxumur(umurtebu + " hari");
                 umurtebu++;
-                if (umurtebu % 10 == 0 && umurtebu < 79) {
-                    try {
-                        scoretebu = Integer.parseInt(model.getuang(username));
-                        view.setboxpopup(popupsiram);
-                        statuspopup = siram;
-                        if (sudahsiram) {
-                            sudahsiram = false;
-                            stoptimer(true);
-                            view.setboxgambarpercakapan("boy");
-                            view.setpercakapan(requestair);
-
-                        }
-                    } catch (SQLException ex) {
-                        Logger.getLogger(c_playtebu.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                if (umurtebu % 10 == 0 && umurtebu < 239) {
+                    view.setboxpopup(popupsiram);
+                    statuspopup = siram;
                 }
-                if (umurtebu % 15 == 0 && umurtebu < 79) {
+                if (umurtebu % 15 == 0 && umurtebu < 239) {
                     int randomrawat = rand.nextInt(4);
                     rawat(randomrawat + 1);
                 }
@@ -152,12 +120,11 @@ public class c_playtebu extends datagame {
                     view.dispose();
                     cek.cancel();
                     task.cancel();
-                    controler.c_play a = new controler.c_play(new play(), username);
+                    controler.c_play a = new controler.c_play(new play(), username, "" + scoretebu);
                     System.out.println("user " + username);
                     System.out.println("score " + scoretebu);
                     model.setscorejagung(username, "" + scoretebu);
-                    model.setscorejagung(username, "" + scoretebu);
-                    a.enablemap("tembakau",true);
+                    a.enablemap("tembakau", true);
                 }
             }
 
@@ -198,7 +165,7 @@ public class c_playtebu extends datagame {
                     view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurtebu > 240) {
+                if (umurtebu > 240&&umurtebu<259) {
                     if (panentebu == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
@@ -206,7 +173,7 @@ public class c_playtebu extends datagame {
                         panentebu = true;
                     }
                 }
-                if (umurtebu > 2600) {
+                if (umurtebu > 260) {
                     if (tebuhidup == true) {
                         view.message("tanaman mati karena tidak dipanen");
                         health = 0;
@@ -397,12 +364,12 @@ public class c_playtebu extends datagame {
             loop = true;
             view.setboxpanen(panen);
             if (statuspopup.equals(panen)) {
-            try {
+                try {
                     view.setboxpopup("");
                     tebuhidup = false;
                     scoretebu += 5;
                     stoptimer(true);
-                    controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username,"tebu");
+                    controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "tebu");
                 } catch (SQLException ex) {
                     Logger.getLogger(c_playtebu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -421,7 +388,7 @@ public class c_playtebu extends datagame {
         public void actionPerformed(ActionEvent e) {
             try {
                 model.setuang(username, "" + scoretebu);
-                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username,"");
+                controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "");
             } catch (SQLException ex) {
                 Logger.getLogger(c_playtebu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -447,8 +414,13 @@ public class c_playtebu extends datagame {
         public void actionPerformed(ActionEvent e) {
             stoptimer(true);
             view.setboxgambarpercakapan("boygirl");
-            view.setpercakapan(keluarpaksa);
+            if (panentebu) {
+                view.setpercakapan(tutupjagung);
+            } else {
+                view.setpercakapan(keluarpaksa);
+            }
             keluar = true;
+
         }
     }
 }

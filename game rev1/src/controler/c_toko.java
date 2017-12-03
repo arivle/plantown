@@ -22,18 +22,14 @@ public class c_toko extends datagame {
     toko view;
     modeltoko model;
     String uang;
-    String pupuk;
-    String obat1;
-    String obat2;
     String air;
     String username = "";
-    String panen;
 
-    public c_toko(toko view, modeltoko model, String Username,String panen) throws SQLException {
+    public c_toko(toko view, modeltoko model, String Username, String panen) throws SQLException {
         this.view = view;
         this.model = model;
         this.username = Username;
-        this.panen=panen;
+        this.panen = panen;
         System.out.println("username toko = " + this.username);
         view.klikbeliair(new klikbeliair());
         view.klikbelipupuk(new klikbelipupuk());
@@ -62,7 +58,7 @@ public class c_toko extends datagame {
     }
 
     private void cekjual(String panen) {
-       System.out.println("cek visible");
+        System.out.println("cek visible");
         if (panen.equalsIgnoreCase("jagung")) {
             view.setgambar("jagung");
         }
@@ -84,7 +80,6 @@ public class c_toko extends datagame {
         view.setobat1(obat1);
         view.setuang(uang);
     }
-
 
     public class klikbeliair implements ActionListener {
 
@@ -188,6 +183,9 @@ public class c_toko extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            c_playjagung.scorejagung = Integer.parseInt(uang);
+            c_playtebu.scoretebu = Integer.parseInt(uang);
+            c_playtembakau.scoretembakau = Integer.parseInt(uang);
             view.dispose();
         }
 

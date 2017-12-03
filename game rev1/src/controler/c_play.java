@@ -24,10 +24,12 @@ public class c_play {
     c_playtebu tebu;
     c_playtembakau tembakau;
     String username;
+    String score;
 
-    public c_play(play view, String username) {
+    public c_play(play view, String username, String score) {
         this.view = view;
         this.username = username;
+        this.score = score;
         view.playjagung(new playjagung());
         view.playtebu(new playtebu());
         view.playtembakau(new playtembakau());
@@ -43,7 +45,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(), new model.modeltoko(), username);
+                controler.c_playjagung d = new controler.c_playjagung(new view.playjagung(), new model.modeltoko(), username, score);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +58,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(), new model.modeltoko(), username);
+                controler.c_playtebu c = new controler.c_playtebu(new view.playtebu(), new model.modeltoko(), username, score);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +71,7 @@ public class c_play {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(), new model.modeltoko(), username);
+                controler.c_playtembakau b = new controler.c_playtembakau(new view.playtembakau(), new model.modeltoko(), username, score);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(c_play.class.getName()).log(Level.SEVERE, null, ex);

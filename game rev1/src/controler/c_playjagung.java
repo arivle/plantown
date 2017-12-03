@@ -31,7 +31,7 @@ public class c_playjagung extends datagame {
     int getdetik = -1;
     int umurjagung = 0;
     int health = 4;
-    int scorejagung = 0;
+    static int scorejagung = 0;
     String statuspopup = "";
     boolean loop = false;
     Timer mytimer = new Timer();
@@ -39,12 +39,12 @@ public class c_playjagung extends datagame {
     boolean stopgame = false;
     boolean keluar = false;
 
-    public c_playjagung(playjagung view, modeltoko model, String username) throws SQLException {
-        scorejagung = Integer.valueOf(model.getuang(username));
+    public c_playjagung(playjagung view, modeltoko model, String username, String score) throws SQLException {
         System.out.println("masuk jagung");
         this.model = model;
         this.view = view;
         this.username = username;
+        this.scorejagung = Integer.parseInt(score);
         System.out.println("username=" + username);
         view.map(new klikmap());
         start();
@@ -130,7 +130,7 @@ public class c_playjagung extends datagame {
                 umurjagung++;
                 if (umurjagung % 10 == 0 && umurjagung < 79) {
                     try {
-                        scorejagung = Integer.parseInt(model.getuang(username));
+                        setsisa();
                         view.setboxpopup(popupsiram);
                         statuspopup = siram;
                         if (sudahsiram) {
@@ -152,15 +152,13 @@ public class c_playjagung extends datagame {
                     view.dispose();
                     cek.cancel();
                     task.cancel();
-                    controler.c_play a = new controler.c_play(new play(), username);
+                    controler.c_play a = new controler.c_play(new play(), username, "" + scorejagung);
                     System.out.println("user " + username);
                     System.out.println("score " + scorejagung);
                     model.setscorejagung(username, "" + scorejagung);
-                    model.setscorejagung(username, "" + scorejagung);
-                    a.enablemap("tebu",true);
+                    a.enablemap("tebu", true);
                 }
             }
-
         }
     };
     TimerTask cek = new TimerTask() {
@@ -198,7 +196,7 @@ public class c_playjagung extends datagame {
                     view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurjagung > 85) {
+                if (umurjagung > 85&&umurjagung<99) {
                     if (panenjagung == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
@@ -227,7 +225,6 @@ public class c_playjagung extends datagame {
         view.setsisapupuk(model.getsisabarang(username, "pupuk"));
         view.setsisaobat1(model.getsisabarang(username, "obat1"));
         view.setsisaobat2(model.getsisabarang(username, "obat2"));
-
     }
 
     public void health() {
@@ -401,7 +398,6 @@ public class c_playjagung extends datagame {
                     view.setboxpopup("");
                     jagunghidup = false;
                     scorejagung += 5;
-                    sudahjagung = true;
                     stoptimer(true);
                     panenjagung = true;
                     controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "jagung");
@@ -449,11 +445,13 @@ public class c_playjagung extends datagame {
         @Override
         public void actionPerformed(ActionEvent e) {
             stoptimer(true);
-                view.setboxgambarpercakapan("boygirl");
-            view.setpercakapan(keluarpaksa);
+            view.setboxgambarpercakapan("boygirl");
+            if (panenjagung) {
+                view.setpercakapan(tutupjagung);
+            } else {
+                view.setpercakapan(keluarpaksa);
+            }
             keluar = true;
-            
-            
         }
     }
 }

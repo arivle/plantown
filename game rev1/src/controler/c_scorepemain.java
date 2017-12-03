@@ -22,7 +22,7 @@ public class c_scorepemain {
     public c_scorepemain(scorepemain view, String score, String username) throws SQLException {
         this.view = view;
         this.username = username;
-        view.setnama(username);
+        view.setnama(this.username);
         view.setscore(score);
         view.klikback(new klikback());
         view.klikhighscore(new klikhighscore());

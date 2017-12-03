@@ -3,25 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_mainmenu.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/datagame.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/mainmenu.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/highscore.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/GameRev1.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playtebu.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/playtebu.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_tentang.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playjagung.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/playtembakau.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_highscore.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_scorepemain.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_play.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/play.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/scorepemain.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/model/modeltoko.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/bantuan.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/playjagung.java</file>
-            <file>file:/D:/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playtembakau.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_mainmenu.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_play.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_toko.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/view/playtembakau.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playtembakau.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playtebu.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/model/modeltoko.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_playjagung.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/datagame.java</file>
+            <file>file:/media/acer/583C4CB33C4C8E46/google%20drive/back%20up%20tugas/semester%205/PPL-git/game%20rev1/src/controler/c_isinama.java</file>
         </group>
     </open-files>
 </project-private>

@@ -15,7 +15,7 @@ public class koneksi {
     public koneksi() throws SQLException {
         String url = "jdbc:mysql://localhost/plantown"; //url DB
         String username = "root"; //username DB
-        String pass = ""; //password DB, Jika tidak di Password silahkan di Kosongkan.
+        String pass = "123"; //password DB, Jika tidak di Password silahkan di Kosongkan.
 
         //membuat koneksi ke DB
         this.con = (Connection) DriverManager.getConnection(url, username, pass);
