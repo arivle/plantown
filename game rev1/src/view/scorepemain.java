@@ -26,7 +26,7 @@ public class scorepemain extends javax.swing.JFrame {
     }
 
     public void setscore(String scorenya) {
-        nama.setText(scorenya);
+        score.setText(scorenya);
     }
 
     public void klikback(ActionListener action) {

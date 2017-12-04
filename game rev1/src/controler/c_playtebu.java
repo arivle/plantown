@@ -7,6 +7,7 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import view.playtebu;
 import java.sql.SQLException;
 import java.util.Random;
@@ -14,6 +15,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 import model.modeltoko;
 import view.play;
 
@@ -38,6 +43,8 @@ public class c_playtebu extends datagame {
     Random rand = new Random();
     boolean stopgame = false;
     boolean keluar = false;
+    AudioInputStream audioIn;
+    Clip clip;
 
     public c_playtebu(playtebu view, modeltoko model, String username, String score) throws SQLException {
         System.out.println("masuk tebu");
@@ -56,7 +63,7 @@ public class c_playtebu extends datagame {
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
         view.kliknext(new kliknext());
-         view.map(new klikmap());
+        view.map(new klikmap());
         stoptimer(true);
         view.setboxgambarpercakapan("boygirl");
         view.setpercakapan(bukatebu);
@@ -114,7 +121,7 @@ public class c_playtebu extends datagame {
                 }
                 if (umurtebu % 15 == 0 && umurtebu < 239) {
                     int randomrawat = rand.nextInt(4);
-                    rawat(randomrawat + 1);
+                    rawat(randomrawat + 1) ;
                 }
                 if (keluar) {
                     view.dispose();
@@ -165,7 +172,7 @@ public class c_playtebu extends datagame {
                     view.setboxpopup(popuppanen);
                     statuspopup = panen;
                 }
-                if (umurtebu > 240&&umurtebu<259) {
+                if (umurtebu > 240 && umurtebu < 259) {
                     if (panentebu == false) {
                         view.setboxgambarpercakapan("boy");
                         view.setpercakapan(requestpanen);
@@ -226,6 +233,17 @@ public class c_playtebu extends datagame {
         }
     }
 
+    public void Musik_Play(String lokasi) {
+        try {
+            audioIn = AudioSystem.getAudioInputStream(new File(lokasi));
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }
+
     private class kliksiram implements ActionListener {
 
         @Override
@@ -235,6 +253,7 @@ public class c_playtebu extends datagame {
                 if (model.getsisabarang(username, "air").equalsIgnoreCase("0")) {
                     view.message("air anda habis silahkan beli air di toko");
                 } else {
+                    Musik_Play("air.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(siram);
@@ -242,7 +261,7 @@ public class c_playtebu extends datagame {
                     setsisa();
                     if (statuspopup.equals(siram)) {
                         view.setboxpopup("");
-                        scoretebu += 5;
+                        scoretebu += 15;
                     } else {
                         health--;
                         health();
@@ -262,6 +281,7 @@ public class c_playtebu extends datagame {
                 if (model.getsisabarang(username, "pupuk").equalsIgnoreCase("0")) {
                     view.message("pupuk anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("pupuk.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(pupuk);
@@ -269,7 +289,7 @@ public class c_playtebu extends datagame {
                     setsisa();
                     if (statuspopup.equals(pupuk)) {
                         view.setboxpopup("");
-                        scoretebu += 5;
+                        scoretebu += 15;
                     } else {
                         health--;
                         health();
@@ -289,6 +309,7 @@ public class c_playtebu extends datagame {
                 if (model.getsisabarang(username, "obat1").equalsIgnoreCase("0")) {
                     view.message("obat biru anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("spray_2.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(obat1);
@@ -296,7 +317,7 @@ public class c_playtebu extends datagame {
                     setsisa();
                     if (statuspopup.equals(obat1)) {
                         view.setboxpopup("");
-                        scoretebu += 5;
+                        scoretebu += 15;
                     } else {
                         health--;
                         health();
@@ -317,6 +338,7 @@ public class c_playtebu extends datagame {
                 if (model.getsisabarang(username, "obat2").equalsIgnoreCase("0")) {
                     view.message("obat kuning anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("spray_2.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(obat2);
@@ -324,7 +346,7 @@ public class c_playtebu extends datagame {
                     setsisa();
                     if (statuspopup.equals(obat2)) {
                         view.setboxpopup("");
-                        scoretebu += 5;
+                        scoretebu += 15;
                     } else {
                         health--;
                         health();
@@ -343,12 +365,13 @@ public class c_playtebu extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            Musik_Play("tangan.wav");
             stoptimer(false);
             loop = true;
             setbox(tangan);
             if (statuspopup.equals(tangan)) {
                 view.setboxpopup("");
-                scoretebu += 5;
+                scoretebu += 15;
             } else {
                 health--;
                 health();
@@ -367,7 +390,7 @@ public class c_playtebu extends datagame {
                 try {
                     view.setboxpopup("");
                     tebuhidup = false;
-                    scoretebu += 5;
+                    scoretebu += 15;
                     stoptimer(true);
                     controler.c_toko a = new controler.c_toko(new view.toko(), new model.modeltoko(), username, "tebu");
                 } catch (SQLException ex) {
@@ -416,9 +439,11 @@ public class c_playtebu extends datagame {
             view.setboxgambarpercakapan("boygirl");
             if (panentebu) {
                 view.setpercakapan(tutupjagung);
+                
             } else {
                 view.setpercakapan(keluarpaksa);
             }
+            model.setuang(username, ""+scoretebu);
             keluar = true;
 
         }

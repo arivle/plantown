@@ -7,14 +7,18 @@ package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 import model.modeltoko;
-import view.play;
 import view.playtembakau;
 
 /**
@@ -39,13 +43,15 @@ public class c_playtembakau extends datagame {
     boolean stopgame = false;
     boolean keluar = false;
     int panenke = 0;
+    AudioInputStream audioIn;
+    Clip clip;
 
-    public c_playtembakau(playtembakau view, modeltoko model, String username,String score) throws SQLException {
+    public c_playtembakau(playtembakau view, modeltoko model, String username, String score) throws SQLException {
         System.out.println("masuk tembakau");
         this.model = model;
         this.view = view;
         this.username = username;
-        this.scoretembakau=Integer.parseInt(score);
+        this.scoretembakau = Integer.parseInt(score);
         System.out.println("username=" + username);
         start();
         setsisa();
@@ -57,7 +63,7 @@ public class c_playtembakau extends datagame {
         view.klikpanen(new klikpanen());
         view.kliktoko(new kliktoko());
         view.kliknext(new kliknext());
-         view.klikmap(new klikmap());
+        view.klikmap(new klikmap());
         stoptimer(true);
         view.setboxgambarpercakapan("boygirl");
         view.setpercakapan(bukatembakau);
@@ -81,7 +87,7 @@ public class c_playtembakau extends datagame {
     public void rawat(int rawat) {
         if (rawat == 1) {
             view.setboxpopup(popupobat1);
-            statuspopup = obat1;            
+            statuspopup = obat1;
         }
         if (rawat == 2) {
             view.setboxpopup(popupobat2);
@@ -128,7 +134,7 @@ public class c_playtembakau extends datagame {
                         System.out.println("user " + username);
                         System.out.println("score " + scoretembakau);
                         model.setscoretembakau(username, "" + scoretembakau);
-                        controler.c_scorepemain b = new controler.c_scorepemain(new view.scorepemain(), model.getscoretotal(username), username);
+                        controler.c_scorepemain b = new controler.c_scorepemain(new view.scorepemain(), model.getuang(username), username);
                     } catch (SQLException ex) {
                         Logger.getLogger(c_playtembakau.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -232,6 +238,17 @@ public class c_playtembakau extends datagame {
         }
     }
 
+    public void Musik_Play(String lokasi) {
+        try {
+            audioIn = AudioSystem.getAudioInputStream(new File(lokasi));
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }
+
     private class kliksiram implements ActionListener {
 
         @Override
@@ -241,6 +258,7 @@ public class c_playtembakau extends datagame {
                 if (model.getsisabarang(username, "air").equalsIgnoreCase("0")) {
                     view.message("air anda habis silahkan beli air di toko");
                 } else {
+                    Musik_Play("air.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(siram);
@@ -268,6 +286,7 @@ public class c_playtembakau extends datagame {
                 if (model.getsisabarang(username, "pupuk").equalsIgnoreCase("0")) {
                     view.message("pupuk anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("pupuk.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(pupuk);
@@ -295,6 +314,7 @@ public class c_playtembakau extends datagame {
                 if (model.getsisabarang(username, "obat1").equalsIgnoreCase("0")) {
                     view.message("obat biru anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("spray_2.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(obat1);
@@ -323,6 +343,7 @@ public class c_playtembakau extends datagame {
                 if (model.getsisabarang(username, "obat2").equalsIgnoreCase("0")) {
                     view.message("obat kuning anda habis silahkan beli ke toko");
                 } else {
+                    Musik_Play("spray_2.wav");
                     stoptimer(false);
                     loop = true;
                     setbox(obat2);
@@ -349,6 +370,7 @@ public class c_playtembakau extends datagame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            Musik_Play("tangan.wav");
             stoptimer(false);
             loop = true;
             setbox(tangan);
@@ -425,11 +447,13 @@ public class c_playtembakau extends datagame {
             view.setboxgambarpercakapan("boygirl");
             if (panentembakau) {
                 view.setpercakapan(tutupjagung);
+                view.setpercakapan(kembalikemap);
             } else {
                 view.setpercakapan(keluarpaksa);
             }
+            model.setuang(username, "" + scoretembakau);
             keluar = true;
-        
+
         }
     }
 

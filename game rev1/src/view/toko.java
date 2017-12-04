@@ -50,7 +50,6 @@ public class toko extends javax.swing.JFrame {
         setpupuk = new javax.swing.JLabel();
         setair = new javax.swing.JLabel();
         kembali = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         icongambar = new javax.swing.JLabel();
         jual = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -59,81 +58,88 @@ public class toko extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 90, 90));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 60, 90));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat2.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pupuk1.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, 80));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 80));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, 80));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 80));
 
-        beliobat1.setText("beli");
-        getContentPane().add(beliobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        beliobat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/beli.png"))); // NOI18N
+        beliobat1.setBorderPainted(false);
+        beliobat1.setContentAreaFilled(false);
+        beliobat1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(beliobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 50));
 
-        beliobat2.setText("beli");
-        getContentPane().add(beliobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
+        beliobat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/beli.png"))); // NOI18N
+        beliobat2.setBorderPainted(false);
+        beliobat2.setContentAreaFilled(false);
+        getContentPane().add(beliobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 100, 50));
 
-        belipupuk.setText("beli");
-        getContentPane().add(belipupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, 30));
+        belipupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/beli.png"))); // NOI18N
+        belipupuk.setBorderPainted(false);
+        belipupuk.setContentAreaFilled(false);
+        belipupuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(belipupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 100, 50));
 
-        beliair.setText("beli");
-        getContentPane().add(beliair, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, -1, -1));
+        beliair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/beli.png"))); // NOI18N
+        beliair.setBorderPainted(false);
+        beliair.setContentAreaFilled(false);
+        getContentPane().add(beliair, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 100, 60));
 
         jLabel1.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
-        jLabel1.setText("2");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 70, -1));
+        jLabel1.setText("5");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 70, -1));
 
         jLabel6.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
-        jLabel6.setText("2");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 60, -1));
+        jLabel6.setText("5");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 60, -1));
 
         jLabel7.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
         jLabel7.setText("10");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 70, 70));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 70, 70));
 
         jLabel8.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
         jLabel8.setText("5");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 60, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 60, -1));
 
         setuang.setFont(new java.awt.Font("Segoe UI Historic", 1, 36)); // NOI18N
         setuang.setForeground(new java.awt.Color(0, 102, 153));
         setuang.setText("0");
-        getContentPane().add(setuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 10, 70, 50));
+        getContentPane().add(setuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 70, 50));
 
         setobat1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 36)); // NOI18N
-        setobat1.setForeground(new java.awt.Color(0, 255, 255));
+        setobat1.setForeground(new java.awt.Color(0, 204, 204));
         setobat1.setText("0");
-        getContentPane().add(setobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 30, 40));
+        getContentPane().add(setobat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 30, 40));
 
         setobat2.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
         setobat2.setForeground(new java.awt.Color(255, 255, 0));
         setobat2.setText("0");
-        getContentPane().add(setobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 30, 30));
+        getContentPane().add(setobat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 30, 30));
 
         setpupuk.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
         setpupuk.setForeground(new java.awt.Color(153, 153, 153));
         setpupuk.setText("0");
-        getContentPane().add(setpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 30, 40));
+        getContentPane().add(setpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 30, 40));
 
         setair.setFont(new java.awt.Font("Swis721 Blk BT", 1, 36)); // NOI18N
-        setair.setForeground(new java.awt.Color(0, 255, 204));
+        setair.setForeground(new java.awt.Color(255, 51, 51));
         setair.setText("0");
-        getContentPane().add(setair, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 30, 30));
+        getContentPane().add(setair, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 30, 30));
 
         kembali.setText("kembali");
-        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, -1, -1));
-
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 490, 300));
-        getContentPane().add(icongambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 120, 120));
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, -1));
+        getContentPane().add(icongambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 120, 120));
 
         jual.setText("jual");
-        getContentPane().add(jual, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 540, -1, -1));
+        getContentPane().add(jual, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/shop.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/shop.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
@@ -250,7 +256,6 @@ public class toko extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jual;
     private javax.swing.JButton kembali;
     private javax.swing.JLabel setair;

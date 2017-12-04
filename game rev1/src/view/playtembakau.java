@@ -143,9 +143,12 @@ public void klikmap(ActionListener action) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        next = new javax.swing.JButton();
+        percakapan = new javax.swing.JTextArea();
+        boxgambarpercakapan = new javax.swing.JLabel();
         tmbsiram = new javax.swing.JButton();
-        boxtanaman = new javax.swing.JLabel();
         boxhp = new javax.swing.JLabel();
+        boxtanaman = new javax.swing.JLabel();
         boxgerak = new javax.swing.JLabel();
         tmbobat1 = new javax.swing.JButton();
         tmbobat2 = new javax.swing.JButton();
@@ -162,9 +165,6 @@ public void klikmap(ActionListener action) {
         sisaobat2 = new javax.swing.JLabel();
         sisapupuk = new javax.swing.JLabel();
         tmbtoko = new javax.swing.JButton();
-        next = new javax.swing.JButton();
-        percakapan = new javax.swing.JTextArea();
-        boxgambarpercakapan = new javax.swing.JLabel();
         panen = new javax.swing.JLabel();
         map = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -173,22 +173,39 @@ public void klikmap(ActionListener action) {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/next.png"))); // NOI18N
+        next.setBorder(null);
+        next.setContentAreaFilled(false);
+        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 80, 70));
+
+        percakapan.setColumns(20);
+        percakapan.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        percakapan.setForeground(new java.awt.Color(255, 255, 255));
+        percakapan.setLineWrap(true);
+        percakapan.setRows(5);
+        percakapan.setWrapStyleWord(true);
+        percakapan.setOpaque(false);
+        getContentPane().add(percakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 510, 100));
+
+        boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
+        boxgambarpercakapan.setBorder(new javax.swing.border.MatteBorder(null));
+        getContentPane().add(boxgambarpercakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 730, 290));
+
         tmbsiram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/water can.png"))); // NOI18N
         tmbsiram.setBorderPainted(false);
         tmbsiram.setContentAreaFilled(false);
         getContentPane().add(tmbsiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 80));
 
-        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/bako.gif"))); // NOI18N
-        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 300, 400));
-
         boxhp.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N
         boxhp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/health4.png"))); // NOI18N
         boxhp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 120, 30));
+        getContentPane().add(boxhp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 120, 30));
+
+        boxtanaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/bako.gif"))); // NOI18N
+        getContentPane().add(boxtanaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 300, 400));
 
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
-        boxgerak.setText("boxgerak");
-        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 250, 200));
+        getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 250, 200));
 
         tmbobat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/obat1.png"))); // NOI18N
         tmbobat1.setBorderPainted(false);
@@ -251,24 +268,6 @@ public void klikmap(ActionListener action) {
 
         tmbtoko.setText("TOKO");
         getContentPane().add(tmbtoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
-
-        next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/next.png"))); // NOI18N
-        next.setBorder(null);
-        next.setContentAreaFilled(false);
-        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 80, 70));
-
-        percakapan.setColumns(20);
-        percakapan.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
-        percakapan.setForeground(new java.awt.Color(255, 255, 255));
-        percakapan.setLineWrap(true);
-        percakapan.setRows(5);
-        percakapan.setWrapStyleWord(true);
-        percakapan.setOpaque(false);
-        getContentPane().add(percakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 510, 100));
-
-        boxgambarpercakapan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
-        boxgambarpercakapan.setBorder(new javax.swing.border.MatteBorder(null));
-        getContentPane().add(boxgambarpercakapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 730, 290));
 
         panen.setBorder(new javax.swing.border.MatteBorder(null));
         getContentPane().add(panen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 330, 110));

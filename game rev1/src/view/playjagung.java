@@ -88,7 +88,6 @@ public class playjagung extends javax.swing.JFrame {
         getContentPane().add(panen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 330, 110));
 
         boxgerak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/emptybox.png"))); // NOI18N
-        boxgerak.setText("boxgerak");
         getContentPane().add(boxgerak, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 250, 200));
 
         boxhp.setFont(new java.awt.Font("Humnst777 Blk BT", 0, 18)); // NOI18N

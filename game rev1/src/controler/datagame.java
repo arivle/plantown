@@ -15,8 +15,6 @@ import java.net.URL;
  */
 public class datagame {
 
-    private static AudioClip musik;
-    
     //help
     
     boolean sudahsiram = true;
